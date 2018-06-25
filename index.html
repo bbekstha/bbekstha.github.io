@@ -46,7 +46,7 @@
       
       function updateDisp(searchVal){
          var url = `https://api.iextrading.com/1.0/stock/${searchVal}/company`;
-
+console.log("MY URL", url);
          var request = new XMLHttpRequest();
          request.open('GET', url);
          request.responseType = 'json';
