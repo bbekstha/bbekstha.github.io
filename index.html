@@ -37,9 +37,9 @@
       var searchClicked = document.querySelector("button");
       var disp = document.querySelector("pre");
 
-      searchClicked.onClick = function() {
+      searchClicked.onclick = function() {
          var searchVal = searchInput.value;
-         
+console.log("button searchClicked")
          updateDisp(searchVal);
       }
 
