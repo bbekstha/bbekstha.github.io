@@ -21,8 +21,10 @@
          color: white;
       }
 
-      #stockResult {
+      #stockResult, td {
          color: white;
+         border: 1px solid green;
+         padding: 5px;
       }
    </style>
 </head>
@@ -60,28 +62,27 @@ console.log("MY URL", url);
          request.responseType = 'json';
 
          request.onload = function() {
-            var resp = request.response
+            var resp = request.response;
             console.log("GOT", resp);
+
+            var tblLen = dispTbl.rows.length;
             var respKeys = Object.keys(resp);
             for(var i = 0; i < respKeys.length; i++) {
-               var row = dispTbl.insertRow(i);
 
-               var cell1 = row.insertCell(0);
-               var cell2 = row.insertCell(1);
-               
-               cell1.innerHTML = respKeys[i];
-               cell2.innerHTML = resp.respKeys[i];
+               if(tblLen === 0) {
+                  var row = dispTbl.insertRow(i);
+
+                  row.insertCell(0).innerHTML = respKeys[i];
+                  row.insertCell(1).innerHTML = resp[respKeys[i]];
+               } else if (tblLen === respKeys.length) {
+                  dispTbl.rows[i].cells[1].innerHTML = resp[respKeys[i]];
+               }
             }
          };
 
          request.send();
       }
 
-      function createRows(numRows) {
-         for(var i = 0; i < numRows; i++) {
-            
-         }
-      }
       updateDisp('aapl');
       searchInput.value = 'aapl';
       
