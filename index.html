@@ -54,7 +54,7 @@ console.log("MY URL", url);
          request.onload = function() {
             var resp = request.response
             console.log("GOT", resp);
-            disp.textContent = resp;
+            disp.textContent = resp.companyName;
          };
 
          request.send();
