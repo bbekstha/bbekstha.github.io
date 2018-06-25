@@ -2,24 +2,45 @@
 <head>
 	<title>Init Web Page</title>
 	<style>
-		body {
-			background-color: #2D2D2D;
-		}
-		
-		h1 {
-			color: #C26356;
-			font-size: 30px;
-			font-family: Menlo, Monaco, fixed-width;
-		}
-		
-		p {
-			color: white;
-			font-family: "Source Code Pro", Menlo, Monaco, fixed-width;
-		}
-	</style>
+      body {
+         background-color: #2D2D2D;
+      }
+
+      h1 {
+         color: #C26356;
+         font-size: 30px;
+         font-family: Menlo, Monaco, fixed-width;
+      }
+
+      p {
+         color: white;
+         font-family: "Source Code Pro", Menlo, Monaco, fixed-width;
+      }
+   </style>
 </head>
 <body>
 	<h1>Initial Setup</h1>
 	<p>To be updated</p>
+	<div>
+      <label for="searchSymbol"> Enter company symbol: </label>
+      <input type="text" id="searchSymbol" placeholder="e.g. aapl">
+   </div>
+   <div>
+      <button>Search</button>
+   </div>
+   <pre>
+
+   </pre>
+
+   <script type="text/javascript">
+      var searchInput = document.querySelector("#searchSymbol");
+      var disp = document.querySelector("pre");
+      var searchVal = searchInput.value;
+      var url = `https://api.iextrading.com/1.0/stock/${searchVal}/company`
+      var request = new XMLHttpRequest();
+      request.open('GET', url);
+
+      request.responseType = 'json';
+   </script>
 </body>
 </html>
