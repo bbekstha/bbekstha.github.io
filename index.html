@@ -52,7 +52,9 @@
          request.responseType = 'json';
 
          request.onload = function() {
-            disp.textContent = request.response;
+            var resp = request.response
+            console.log("GOT", resp);
+            disp.textContent = resp;
          };
 
          request.send();
