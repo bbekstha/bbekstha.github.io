@@ -17,11 +17,7 @@
          font-family: "Source Code Pro", Menlo, Monaco, fixed-width;
       }
 
-      label .searchSymbol {
-         color: white;
-      }
-
-      pre {
+      label {
          color: white;
       }
    </style>
@@ -36,14 +32,14 @@
    <div>
       <button>Search</button>
    </div>
-   <pre>
+   <table>
 
-   </pre>
+   </table>
 
    <script type="text/javascript">
       var searchInput = document.querySelector("#searchSymbol");
       var searchClicked = document.querySelector("button");
-      var disp = document.querySelector("pre");
+      var dispTbl = document.querySelector("table");
 
       searchClicked.onclick = function() {
          var searchVal = searchInput.value;
@@ -62,15 +58,44 @@ console.log("MY URL", url);
          request.onload = function() {
             var resp = request.response
             console.log("GOT", resp);
-            disp.textContent = resp.companyName;
+            var respKeys = Object.keys(resp);
+            for(var i = 0; i < respKeys.length; i++) {
+               var row = dispTbl.insertRow(i);
+
+               var cell1 = row.insertCell(0);
+               var cell2 = row.insertCell(1);
+               
+               cell1.innerHTML = respKeys[i];
+               cell2.innerHTML = resp.respKeys[i];
+            }
          };
 
          request.send();
       }
 
+      function createRows(numRows) {
+         for(var i = 0; i < numRows; i++) {
+            
+         }
+      }
       updateDisp('aapl');
       searchInput.value = 'aapl';
       
    </script>
 </body>
 </html>
+
+
+<!-- symbol   "AAPL"
+companyName "Apple Inc."
+exchange "Nasdaq Global Select"
+industry "Computer Hardware"
+website  "http://www.apple.com"
+description "Apple Inc is designs, manufactures and markets mobile communication and media devices and personal computers, and sells a variety of related software, services, accessories, networking solutions and third-party digital content and applications."
+CEO   "Timothy D. Cook"
+issueType   "cs"
+sector   "Technology"
+tags  
+0  "Technology"
+1  "Consumer Electronics"
+2  "Computer Hardware" -->
