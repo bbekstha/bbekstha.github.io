@@ -1,5 +1,5 @@
 var searchInput = document.querySelector("#searchSymbol");
-var searchClicked = document.querySelector("button");
+var searchClicked = document.querySelector("#searchBtn");
 var dispTbl = document.querySelector("table");
 
 searchClicked.onclick = function() {
