@@ -34,13 +34,33 @@
 
    <script type="text/javascript">
       var searchInput = document.querySelector("#searchSymbol");
+      var searchClicked = document.querySelector("button");
       var disp = document.querySelector("pre");
-      var searchVal = searchInput.value;
-      var url = `https://api.iextrading.com/1.0/stock/${searchVal}/company`
-      var request = new XMLHttpRequest();
-      request.open('GET', url);
 
-      request.responseType = 'json';
+      searchClicked.onClick = function() {
+         var searchVal = searchInput.value;
+         
+         updateDisp(searchVal);
+      }
+
+      
+      function updateDisp(searchVal){
+         var url = `https://api.iextrading.com/1.0/stock/${searchVal}/company`;
+
+         var request = new XMLHttpRequest();
+         request.open('GET', url);
+         request.responseType = 'json';
+
+         request.onload = function() {
+            disp.textContent = request.response;
+         };
+
+         request.send();
+      }
+
+      updateDisp('aapl');
+      searchInput.value = 'aapl';
+      
    </script>
 </body>
 </html>
