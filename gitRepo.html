@@ -4,20 +4,20 @@
    <link href="gitWeb-style.css" rel="stylesheet"/>
 </head>
 <body>
-   <h1>REPOS</h1>
-   <div>
-      <label for="accessToken"> Enter access token: </label>
-      <input type="text" id="accessToken">
-      <button id="searchGitBtn"> Search </button>
+   <div id="container">
+      <h1>REPOS</h1>
+      <div>
+         <label for="accessToken"> Enter access token: </label>
+         <input type="text" id="accessToken">
+         <button id="searchGitBtn"> Search </button>
+      </div>
+
+      <br/>
+      <table id = "gitRepos">
+
+      </table>
+      <button id="to_home"> HOME </button>
+      <script src="sourceGitRepo.js"> </script>
    </div>
-
-   <br/>
-   <table id = "gitRepos">
-
-   </table>
-
-   <a href="index.html">BACK TO HOME</a>
-   <a href="stock.html">STOCK SEARCH </a>
-   <script src="sourceGitRepo.js"> </script>
 </body>
 </html>
