@@ -1,6 +1,6 @@
 var searchInput = document.querySelector("#searchSymbol");
 var searchClicked = document.querySelector("#searchBtn");
-var dispTblStock = document.querySelector("table");
+var dispStock = document.querySelector("table");
 
 searchClicked.onclick = function() {
    var searchVal = searchInput.value;
@@ -19,17 +19,17 @@ console.log("MY URL", url);
       var resp = request.response;
 console.log("GOT", resp);
 
-      var tblLen = dispTbl.rows.length;
+      var tblLen = dispStock.rows.length;
       var respKeys = Object.keys(resp);
       for(var i = 0; i < respKeys.length; i++) {
 
          if(tblLen === 0) {
-            var row = dispTbl.insertRow(i);
+            var row = dispStock.insertRow(i);
 
             row.insertCell(0).innerHTML = respKeys[i];
             row.insertCell(1).innerHTML = resp[respKeys[i]];
          } else if (tblLen === respKeys.length) {
-            dispTbl.rows[i].cells[1].innerHTML = resp[respKeys[i]];
+            dispStock.rows[i].cells[1].innerHTML = resp[respKeys[i]];
          }
       }
    };
