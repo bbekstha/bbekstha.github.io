@@ -42,3 +42,7 @@ button {
    width: 75px;
    margin-right: 60px;
 }
+
+#link_pages {
+   display: none
+}
