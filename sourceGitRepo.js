@@ -22,28 +22,19 @@ console.log("REPO btn clicked")
 }
 
 function updateDispGit(searchVal){
-   var url = `https://api.github.com/user?access_token=${searchVal}`;
+   var url = `https://api.github.com/user/repos?access_token=${searchVal}`;
 console.log("MY URL 1", url);
 
    fetch(url).then(function(response) {
-      response.json().then(function(jsonResp) {
-         var repoUrl = jsonResp.repos_url;
-console.log("MY URL 2", repoUrl);
-         fetch(repoUrl).then(function(repoResp) {
-            repoResp.json().then(function(repoJson) {
+      response.json().then(function(repoJson) {
 
-               for(repo in repoJson) {
-                  var row = dispTblGit.insertRow(repo);
-
-                  row.insertCell(0).innerHTML = "name"
-                  row.insertCell(1).innerHTML = repoJson[repo].name;
-               }
-            })
-         })
+         for(repo in repoJson) {
+            var row = dispTblGit.insertRow(repo);
+            row.insertCell(0).innerHTML = repoJson[repo].name;
+         }
       })
-   });
+   })
 }
-
 
 function modifyContainer(startNode) {
    if (startNode.tagName === 'SCRIPT' ) {

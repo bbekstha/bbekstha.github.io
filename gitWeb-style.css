@@ -40,9 +40,14 @@ a:active {
 
 button {
    width: 75px;
+   height: 25px;
    margin-right: 60px;
 }
 
 #link_pages {
    display: none
+}
+
+button:hover {
+   box-shadow: 0 14px 28px rgba(255,255,255,0.75), 0 10px 10px rgba(255,255,255,0.22);
 }
