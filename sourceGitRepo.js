@@ -1,11 +1,10 @@
-var searchInput = document.querySelector("#searchSymbol");
-var searchClicked = document.querySelector("#searchBtn");
-var dispTblStock = document.querySelector("table");
+var accessTokenInput = document.getElementById("accessToken");
+var searchClicked = document.getElementById("searchGitBtn");
+var dispTblGit = document.getElementById("gitRepos");
 
 searchClicked.onclick = function() {
-   var searchVal = searchInput.value;
-console.log("button searchClicked")
-   updateDispStock(searchVal);
+   var acsTkn = accessTokenInput.value;
+   updateDispGit(acsTkn);
 }
 
 function updateDispStock(searchVal){
