@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <head>
-	<title> Stock Search </title>
+	<title> Home </title>
 	<link href="gitWeb-style.css" rel="stylesheet"/>
 </head>
 <body>
-	<h1>STOCK SEARCH</h1>
-	<div>
-      <label for="searchSymbol"> Enter company symbol: </label>
-      <input type="text" id="searchSymbol" placeholder="e.g. aapl">
-      <button id="searchBtn"> Search </button>
+	<h1>WELCOME TO THE HOME</h1>
+	
+   <div id="content">
+      <div id='link_pages'>
+         <a href="gitRepo.html">CHECK REPOS</a>
+         <a href="stock.html">STOCK SEARCH </a>
+      </div>
+      <div id='btn_pages'>
+         <button id="to_stock"> STOCK </button>
+         <button id="to_repo"> REPO </button>
+      </div>
+      <script src="source.js"></script>
    </div>
 
-   <br/>
-   <table id = "stockResult">
-
-   </table>
-   <a href="gitRepo.html">CHECK REPOS</a>
-   <script src="source.js"> </script>
+  
 </body>
 </html>

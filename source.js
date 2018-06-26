@@ -1,38 +1,23 @@
-var searchInput = document.querySelector("#searchSymbol");
-var searchClicked = document.querySelector("#searchBtn");
-var dispStock = document.querySelector("table");
+var stockBtn = document.getElementById("to_stock");
+var repoBtn = document.getElementById("to_repo");
 
-searchClicked.onclick = function() {
-   var searchVal = searchInput.value;
-console.log("button searchClicked")
-   updateDispStock(searchVal);
+
+stockBtn.onclick = function() {
+console.log("STOCK IS CLICKED")
+	// document.getElementById("content").innerHTML = '<object type="text/html" '+
+	// 'data="stock.html"></object>';
+	fetch("stock.html").then(function (response) {
+		response.text().then(function (textHtml) {
+			document.getElementById("content").innerHTML = textHtml
+		})
+	})
 }
 
-function updateDispStock(searchVal){
-   var url = `https://api.iextrading.com/1.0/stock/${searchVal}/company`;
-console.log("MY URL", url);
-   var request = new XMLHttpRequest();
-   request.open('GET', url);
-   request.responseType = 'json';
-
-   request.onload = function() {
-      var resp = request.response;
-console.log("GOT", resp);
-
-      var tblLen = dispStock.rows.length;
-      var respKeys = Object.keys(resp);
-      for(var i = 0; i < respKeys.length; i++) {
-
-         if(tblLen === 0) {
-            var row = dispStock.insertRow(i);
-
-            row.insertCell(0).innerHTML = respKeys[i];
-            row.insertCell(1).innerHTML = resp[respKeys[i]];
-         } else if (tblLen === respKeys.length) {
-            dispStock.rows[i].cells[1].innerHTML = resp[respKeys[i]];
-         }
-      }
-   };
-
-   request.send();
+repoBtn.onclick = function() {
+console.log("REPO IS CLICKED")
+	fetch("gitRepo.html").then(function (response) {
+		response.text().then(function (textHtml) {
+			document.getElementById("content").innerHTML = textHtml
+		})
+	})
 }
