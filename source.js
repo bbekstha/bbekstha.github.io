@@ -22,7 +22,6 @@ console.log("REPO IS CLICKED")
 	})
 }
 
-
 function modifyScript(startNode) {
 console.log("REPLACING SCRIPT")
     if (startNode.tagName === 'SCRIPT' ) {

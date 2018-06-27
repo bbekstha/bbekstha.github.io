@@ -10,7 +10,8 @@ body {
    z-index: 100;
    height: 50px;
    width: auto;
-   top: 0;
+   padding: 10px 0px 0px 10px;
+   text-align: center;
 }
 
 h1 {
@@ -41,13 +42,21 @@ a:active {
 }
 
 #btn_pages {
+   display: flex;
+   margin: auto;
+   width:50%;
    padding: 25px;
+   align-items: center;
+   justify-content: center;
+   /*float: center;*/
 }
 
 button {
    width: 75px;
    height: 25px;
-   margin-right: 60px;
+   text-align: center;
+   vertical-align: center;
+   margin: 0px 25px 0px 25px;
 }
 
 #link_pages {
