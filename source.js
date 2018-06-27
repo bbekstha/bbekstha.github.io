@@ -45,8 +45,8 @@ console.log("PROTECTED IS CLICKED")
             window.location = auth_url
         }
     }
-    else if(id_token === hashFrag.substring(hashFrag.indexOf("access_token") + 2, 
-     hashFrag.indexOf("&", hashFrag.indexOf("access_token")))) {
+    else if(id_token === hashFrag.substring(hashFrag.indexOf("id_token") + 2, 
+     hashFrag.indexOf("&", hashFrag.indexOf("id_token")))) {
         fetch("protected.html").then(function (response) {
             response.text().then(function (textHtml) {
                 document.getElementById("content").innerHTML = textHtml
