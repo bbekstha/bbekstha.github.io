@@ -1,7 +1,6 @@
 var stockBtn = document.getElementById("to_stock");
 var repoBtn = document.getElementById("to_repo");
 var protectedBtn = document.getElementById("to_protected");
-var regex = "/([^&=]+)=([^&]*)/g"
 
 stockBtn.onclick = function() {
 console.log("STOCK IS CLICKED")
@@ -37,12 +36,8 @@ console.log("HASH", hashFrag)
             window.location = auth_url
         }
         else {
-            var m, params = []
-            while (m = regex.exec(hashFrag)) {
-                console.log("POWER OF M", m)
-                params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-            }
-console.log("PARAME", params)
+            var cookie = hashFrag.replace("&", ";");
+console.log("PARAME", cookie)
             // var cookieStr = 
         }
     }
