@@ -56,45 +56,20 @@ console.log("PROTECTED IS CLICKED")
     }
 }
 
-function getToken() {
-    var auth_clientId = "2fior6770hvto4u6kuq084j7fu"
-    var redirUrl = "https://bbekstha.github.io"
-    
-    var auth_url = `https://cognito-dev.calpoly.edu/login?` + 
-        `response_type=token&client_id=${auth_clientId}&redirect_uri=${redirUrl}`
-  
-  var xhr = new XMLHttpRequest();
-  
-  xhr.open('GET', auth_url);
-  // xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-  xhr.addEventListener('load', function() {
-    var responseObject = JSON.parse(this.response);
-    console.log(responseObject);
-    if (responseObject.token) {
-      console.log("RTOKEN", responseObject.token);
-    } else {
-      console.log("No token received");
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
     }
-  });
-
-  xhr.send();
-}
-
-function setCookie(respHeader) {
-    console.log("Header", respHeader)
-}
-
-function getCookie(ckName) {
-   var name = ckName + "=";
-   fetch(document.cookie).then(function(response) {
-      response.text().then(function(textCookie) {
-         var cookieValArr = textCookie.split(';');
-         for(var i in cookieValArr) {
-            if(i.indexOf(name) === 0)
-               return i.substring(name.length);
-         }
-      })
-   })
+    return "";
 }
 
 function modifyScript(startNode) {
