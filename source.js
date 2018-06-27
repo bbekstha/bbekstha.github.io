@@ -35,9 +35,9 @@ console.log("PROTECTED IS CLICKED")
 
     var auth_clientId = "2fior6770hvto4u6kuq084j7fu"
     var redirUrl = "https://bbekstha.github.io"
-    var acsTkn = getCookie("access_token")
+    var id_token = getCookie("id_token")
     
-    if(!acsTkn) {
+    if(!id_token) {
         var auth_url = `https://cognito-dev.calpoly.edu/login?` + 
         `response_type=token&client_id=${auth_clientId}&redirect_uri=${redirUrl}`
         
@@ -45,7 +45,7 @@ console.log("PROTECTED IS CLICKED")
             window.location = auth_url
         }
     }
-    else if(acsTkn === hashFrag.substring(hashFrag.indexOf("access_token") + 2, 
+    else if(id_token === hashFrag.substring(hashFrag.indexOf("access_token") + 2, 
      hashFrag.indexOf("&", hashFrag.indexOf("access_token")))) {
         fetch("protected.html").then(function (response) {
             response.text().then(function (textHtml) {
