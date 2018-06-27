@@ -1,6 +1,14 @@
 var stockBtn = document.getElementById("to_stock");
 var repoBtn = document.getElementById("to_repo");
 var protectedBtn = document.getElementById("to_protected");
+var hashFrag = window.location.hash.substring(1)
+
+
+window.onload = function(){
+    if(hashFrag){
+        document.cookie = hashFrag.replace("&", ";");
+    }
+}
 
 stockBtn.onclick = function() {
 console.log("STOCK IS CLICKED")
@@ -27,26 +35,25 @@ console.log("PROTECTED IS CLICKED")
 
     var auth_clientId = "2fior6770hvto4u6kuq084j7fu"
     var redirUrl = "https://bbekstha.github.io"
-    if(!getCookie("access_token")) {
+    var acsTkn = getCookie("access_token")
+    
+    if(!acsTkn) {
         var auth_url = `https://cognito-dev.calpoly.edu/login?` + 
         `response_type=token&client_id=${auth_clientId}&redirect_uri=${redirUrl}`
-        var hashFrag = window.location.hash.substring(1)
-console.log("HASH", hashFrag)
+        
         if(!hashFrag) {
             window.location = auth_url
         }
-        else {
-            var cookie = hashFrag.replace("&", ";");
-console.log("PARAME", cookie)
-            // var cookieStr = 
-        }
     }
-    fetch("protected.html").then(function (response) {
-        response.text().then(function (textHtml) {
-            document.getElementById("content").innerHTML = textHtml
-            modifyScript(document.getElementsByTagName("body")[0])
+    else if(acsTkn === hashFrag.substring(hashFrag.indexOf("access_token") + 2, 
+     hashFrag.indexOf("&", hashFrag.indexOf("access_token")))) {
+        fetch("protected.html").then(function (response) {
+            response.text().then(function (textHtml) {
+                document.getElementById("content").innerHTML = textHtml
+                modifyScript(document.getElementsByTagName("body")[0])
+            })
         })
-    })
+    }
 }
 
 function getToken() {
