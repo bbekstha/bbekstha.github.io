@@ -1,15 +1,15 @@
 var stockBtn = document.getElementById("to_stock");
 var repoBtn = document.getElementById("to_repo");
-
+var protectedBtn = document.getElementById("to_protected");
 
 stockBtn.onclick = function() {
 console.log("STOCK IS CLICKED")
-	fetch("stock.html").then(function (response) {
-		response.text().then(function (textHtml) {
-			document.getElementById("content").innerHTML = textHtml
-			modifyScript(document.getElementsByTagName("body")[0])
-		})
-	})
+    fetch("stock.html").then(function (response) {
+    	response.text().then(function (textHtml) {
+    		document.getElementById("content").innerHTML = textHtml
+    		modifyScript(document.getElementsByTagName("body")[0])
+    	})
+    })
 }
 
 repoBtn.onclick = function() {
@@ -20,6 +20,16 @@ console.log("REPO IS CLICKED")
 			modifyScript(document.getElementsByTagName("body")[0])
 		})
 	})
+}
+
+protectedBtn.onclick = function() {
+console.log("PROTECTED IS CLICKED")
+    fetch("protected.html").then(function (response) {
+        response.text().then(function (textHtml) {
+            document.getElementById("content").innerHTML = textHtml
+            modifyScript(document.getElementsByTagName("body")[0])
+        })
+    })
 }
 
 function modifyScript(startNode) {
