@@ -24,8 +24,18 @@ console.log("REPO IS CLICKED")
 
 protectedBtn.onclick = function() {
 console.log("PROTECTED IS CLICKED")
-    if(!getCookie("auth_token")) {
-        window.location.href="https://cognito-dev.calpoly.edu/login?response_type=token&client_id=2fior6770hvto4u6kuq084j7fu&redirect_uri=https://bbekstha.github.io"
+
+    var auth_clientId = "2fior6770hvto4u6kuq084j7fu"
+    var redirUrl = "https://bbekstha.github.io"
+    if(!getCookie("XSRF-TOKEN")) {
+        getToken()
+//         var auth_url = `https://cognito-dev.calpoly.edu/login?` + 
+//         `response_type=token&client_id=${auth_clientId}&redirect_uri=${redirUrl}`
+// console.log("URL AUTH", auth_url)
+//         window.location.href = auth_url
+//         fetch(auth_url).then(function(response) {
+//            setCookie(response.headers)
+//         })
     }
     fetch("protected.html").then(function (response) {
         response.text().then(function (textHtml) {
@@ -33,6 +43,34 @@ console.log("PROTECTED IS CLICKED")
             modifyScript(document.getElementsByTagName("body")[0])
         })
     })
+}
+
+function getToken() {
+    var auth_clientId = "2fior6770hvto4u6kuq084j7fu"
+    var redirUrl = "https://bbekstha.github.io"
+    
+    var auth_url = `https://cognito-dev.calpoly.edu/login?` + 
+        `response_type=token&client_id=${auth_clientId}&redirect_uri=${redirUrl}`
+  
+  var xhr = new XMLHttpRequest();
+  
+  xhr.open('GET', auth_url);
+  // xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+  xhr.addEventListener('load', function() {
+    var responseObject = JSON.parse(this.response);
+    console.log(responseObject);
+    if (responseObject.token) {
+      console.log("RTOKEN", responseObject.token);
+    } else {
+      console.log("No token received");
+    }
+  });
+
+  xhr.send();
+}
+
+function setCookie(respHeader) {
+    console.log("Header", respHeader)
 }
 
 function getCookie(ckName) {
