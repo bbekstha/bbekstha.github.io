@@ -26,7 +26,7 @@ protectedBtn.onclick = function() {
 console.log("PROTECTED IS CLICKED")
 console.log("MY URL", window.location.href)
     var auth_clientId = "2fior6770hvto4u6kuq084j7fu"
-    var redirUrl = "bbekstha..github.io"
+    var redirUrl = "https://bbekstha.github.io"
     if(!getCookie("XSRF-TOKEN")) {
         // getToken()
         var auth_url = `https://cognito-dev.calpoly.edu/login?` + 
