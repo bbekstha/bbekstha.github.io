@@ -24,12 +24,28 @@ console.log("REPO IS CLICKED")
 
 protectedBtn.onclick = function() {
 console.log("PROTECTED IS CLICKED")
+    if(!getCookie("auth_token")) {
+        window.location.href="https://cognito-dev.calpoly.edu/login?response_type=token&client_id=2fior6770hvto4u6kuq084j7fu&redirect_uri=https://bbekstha.github.io"
+    }
     fetch("protected.html").then(function (response) {
         response.text().then(function (textHtml) {
             document.getElementById("content").innerHTML = textHtml
             modifyScript(document.getElementsByTagName("body")[0])
         })
     })
+}
+
+function getCookie(ckName) {
+   var name = ckName + "=";
+   fetch(document.cookie).then(function(response) {
+      response.text().then(function(textCookie) {
+         var cookieValArr = textCookie.split(';');
+         for(var i in cookieValArr) {
+            if(i.indexOf(name) === 0)
+               return i.substring(name.length);
+         }
+      })
+   })
 }
 
 function modifyScript(startNode) {
