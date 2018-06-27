@@ -39,7 +39,7 @@ console.log("MY URL 1", url);
 function modifyContainer(startNode) {
    if (startNode.tagName === 'SCRIPT' ) {
       startNode.parentNode.replaceChild(createScript(startNode), startNode);
-   }
+   } 
    else if(startNode.tagName === 'H1' && !h1Count) {
 console.log("HERE")
       startNode.parentNode.removeChild(startNode);
