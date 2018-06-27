@@ -24,18 +24,17 @@ console.log("REPO IS CLICKED")
 
 protectedBtn.onclick = function() {
 console.log("PROTECTED IS CLICKED")
-
+console.log("MY URL", window.location.href)
     var auth_clientId = "2fior6770hvto4u6kuq084j7fu"
-    var redirUrl = "https://bbekstha.github.io"
+    var redirUrl = "bbekstha..github.io"
     if(!getCookie("XSRF-TOKEN")) {
-        getToken()
-//         var auth_url = `https://cognito-dev.calpoly.edu/login?` + 
-//         `response_type=token&client_id=${auth_clientId}&redirect_uri=${redirUrl}`
-// console.log("URL AUTH", auth_url)
-//         window.location.href = auth_url
-//         fetch(auth_url).then(function(response) {
-//            setCookie(response.headers)
-//         })
+        // getToken()
+        var auth_url = `https://cognito-dev.calpoly.edu/login?` + 
+        `response_type=token&client_id=${auth_clientId}&redirect_uri=${redirUrl}`
+console.log("URL AUTH", auth_url)
+        window.location = auth_url
+console.log("URL AUTH 2", auth_url)
+// console.log()
     }
     fetch("protected.html").then(function (response) {
         response.text().then(function (textHtml) {
