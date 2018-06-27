@@ -1,6 +1,7 @@
 var stockBtn = document.getElementById("to_stock");
 var repoBtn = document.getElementById("to_repo");
 var protectedBtn = document.getElementById("to_protected");
+var regex = "/([^&=]+)=([^&]*)/g"
 
 stockBtn.onclick = function() {
 console.log("STOCK IS CLICKED")
@@ -24,17 +25,26 @@ console.log("REPO IS CLICKED")
 
 protectedBtn.onclick = function() {
 console.log("PROTECTED IS CLICKED")
-console.log("MY URL", window.location.href)
+
     var auth_clientId = "2fior6770hvto4u6kuq084j7fu"
     var redirUrl = "https://bbekstha.github.io"
-    if(!getCookie("XSRF-TOKEN")) {
-        // getToken()
+    if(!getCookie("access_token")) {
         var auth_url = `https://cognito-dev.calpoly.edu/login?` + 
         `response_type=token&client_id=${auth_clientId}&redirect_uri=${redirUrl}`
-console.log("URL AUTH", auth_url)
-        window.location = auth_url
-console.log("URL AUTH 2", auth_url)
-// console.log()
+        var hashFrag = window.location.hash.substring(1)
+console.log("HASH", hashFrag)
+        if(!hashFrag) {
+            window.location = auth_url
+        }
+        else {
+            var m, params = []
+            while (m = regex.exec(hashFrag)) {
+                console.log("POWER OF M", m)
+                params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+            }
+console.log("PARAME", params)
+            // var cookieStr = 
+        }
     }
     fetch("protected.html").then(function (response) {
         response.text().then(function (textHtml) {
