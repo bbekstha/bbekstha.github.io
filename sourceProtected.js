@@ -2,11 +2,7 @@ var homeBtn = document.getElementById("to_home");
 var dispTblPet = document.getElementById("pets");
 var h1Count = 0;
 
-
-window.onload = function () {
-console.log("UPDATING TABLE")
-   updateDispPet()
-}
+updateDispPet()
 
 this.homeBtn.onclick = function() {
 console.log("HOME IS CLICKED")
