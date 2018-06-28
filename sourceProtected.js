@@ -61,7 +61,7 @@ console.log("GET AND INSERT PETS")
    // xhr.setRequestHeader("Access-Control-Allow-Expose-Headers", "Content-Type, Location")
    // xhr.setRequestHeader("Access-Control-Allow-Methods", "GET")
    // xhr.setRequestHeader("Cache-Control", "no-cache");
-   fetch(url, {credentials: 'include', headers, mode:'cors'}).then(function(response) {
+   fetch(url, {credentials: 'include', headers, mode:'no-cors'}).then(function(response) {
       response.json().then(function(petsJson) {
 console.log("MY PETS", petsJson)
          var petKeys = Object.keys(petsJson);
