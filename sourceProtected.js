@@ -55,7 +55,7 @@ console.log("GET AND INSERT PETS")
    if(auth_token) {
       xhr.setRequestHeader("Authorization", `Bearer ${auth_token}`);
    }
-   xhr.setRequestHeader("Access-Control-Allow-Origin", '*')
+   xhr.setRequestHeader("Access-Control-Allow-Origin", 'https://bbekstha.github.io')
    xhr.setRequestHeader("Access-Control-Allow-Credentials", true)
    xhr.setRequestHeader("Access-Control-Allow-Headers", "Content-Type")
    xhr.setRequestHeader("Access-Control-Allow-Expose-Headers", "Content-Type, Location")
