@@ -21,7 +21,7 @@ console.log("GET AND INSERT PETS")
    var url = "https://api-dev.calpoly.edu/dev/pets";
    let headers = {
       "Content-Type": "application/json"
-      "Access-Control-Allow-Credentials" : true,
+      "Access-Control-Allow-Credentials" : "true",
       "Access-Control-Allow-Origin" : "*",
       "Access-Control-Request-Method" : "GET"
    } 
