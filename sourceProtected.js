@@ -4,6 +4,7 @@ var h1Count = 0;
 
 
 window.onload = function () {
+console.log("UPDATING TABLE")
    updateDispPet()
 }
 
