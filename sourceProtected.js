@@ -55,7 +55,7 @@ console.log("GET AND INSERT PETS")
    if(auth_token) {
       xhr.setRequestHeader("Authorization", `Bearer ${auth_token}`);
    }
-   xhr.setRequestHeader("Access-Control-Allow-Origin". "*")
+   xhr.setRequestHeader("Access-Control-Allow-Origin", '*')
    xhr.setRequestHeader("Access-Control-Allow-Methods", "GET")
    xhr.setRequestHeader("Cache-Control", "no-cache");
 //    fetch(url, {headers, mode:'cors'}).then(function(response) {
