@@ -2,6 +2,11 @@ var homeBtn = document.getElementById("to_home");
 var dispTblPet = document.getElementById("pets");
 var h1Count = 0;
 
+
+window.onload = function () {
+   updateDispPet()
+}
+
 this.homeBtn.onclick = function() {
 console.log("HOME IS CLICKED")
    fetch("index.html").then(function (response) {
@@ -14,7 +19,7 @@ console.log("HOME IS CLICKED")
 }
 
 
-function updateDispGit(){
+function updateDispPet(){
    var url = "https://api-dev.calpoly.edu/dev/pets";
    let headers = {"Content-Type": "application/json"};
    let auth_token = getCookie("id_token")
@@ -47,7 +52,6 @@ function modifyContainer(startNode) {
       startNode.parentNode.replaceChild(createScript(startNode), startNode);
    } 
    else if(startNode.tagName === 'H1' && !h1Count) {
-console.log("HERE")
       startNode.parentNode.removeChild(startNode);
       h1Count++;
    }

@@ -59,7 +59,6 @@ function modifyContainer(startNode) {
       startNode.parentNode.replaceChild(createScript(startNode), startNode);
    } 
    else if(startNode.tagName === 'H1' && !h1Count) {
-console.log("HERE")
       startNode.parentNode.removeChild(startNode);
       h1Count++;
    }
@@ -75,7 +74,6 @@ console.log("HERE")
 }
 
 function createScript(currNode){
-console.log("CREATING SCRIPT")
    var script  = document.createElement("script");
    script.text = currNode.innerHTML;
    for( var i = currNode.attributes.length-1; i >= 0; i-- ) {

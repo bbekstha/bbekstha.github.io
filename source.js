@@ -37,7 +37,7 @@ console.log("PROTECTED IS CLICKED")
     var auth_clientId = "2fior6770hvto4u6kuq084j7fu"
     var redirUrl = "https://bbekstha.github.io"
     var id_token = getCookie("id_token")
-    
+
     if(!id_token) {
         var auth_url = `https://cognito-dev.calpoly.edu/login?` + 
         `response_type=token&client_id=${auth_clientId}&redirect_uri=${redirUrl}`
@@ -73,7 +73,6 @@ function getCookie(cname) {
 }
 
 function modifyScript(startNode) {
-console.log("REPLACING SCRIPT")
     if (startNode.tagName === 'SCRIPT' ) {
         startNode.parentNode.replaceChild(createScript(startNode), startNode);
     }

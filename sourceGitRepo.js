@@ -23,7 +23,6 @@ console.log("REPO btn clicked")
 
 function updateDispGit(searchVal){
    var url = `https://api.github.com/user/repos?access_token=${searchVal}`;
-console.log("MY URL 1", url);
 
    fetch(url).then(function(response) {
       response.json().then(function(repoJson) {
@@ -41,7 +40,6 @@ function modifyContainer(startNode) {
       startNode.parentNode.replaceChild(createScript(startNode), startNode);
    } 
    else if(startNode.tagName === 'H1' && !h1Count) {
-console.log("HERE")
       startNode.parentNode.removeChild(startNode);
       h1Count++;
    }
