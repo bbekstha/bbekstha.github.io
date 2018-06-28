@@ -52,7 +52,11 @@ console.log("GET AND INSERT PETS")
    });
 
    xhr.open("GET", url);
-   xhr.setRequestHeader("Authorization", `Bearer ${auth_token}`);
+   if(auth_token) {
+      xhr.setRequestHeader("Authorization", `Bearer ${auth_token}`);
+   }
+   xhr.setRequestHeader("Access-Control-Allow-Origin". "*")
+   xhr.setRequestHeader("Access-Control-Allow-Methods", "GET")
    xhr.setRequestHeader("Cache-Control", "no-cache");
 //    fetch(url, {headers, mode:'cors'}).then(function(response) {
 //       response.json().then(function(petsJson) {
@@ -75,7 +79,7 @@ console.log("GET AND INSERT PETS")
    xhr.onload = function() {
       console.log(xhr.response)
    }
-   
+
    xhr.send()
 }
 
