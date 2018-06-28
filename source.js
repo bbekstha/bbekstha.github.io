@@ -6,6 +6,7 @@ var hashFrag = window.location.hash.substring(1)
 
 window.onload = function(){
     if(hashFrag){
+        window.location = "https://bbekstha.github.io"
         document.cookie = hashFrag.replace("&", ";");
     }
 }
