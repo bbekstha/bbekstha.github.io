@@ -1,4 +1,5 @@
 var homeBtn = document.getElementById("to_home");
+var dispTblPet = document.getElementById("pets");
 var h1Count = 0;
 
 this.homeBtn.onclick = function() {
@@ -8,6 +9,34 @@ console.log("HOME IS CLICKED")
 
          document.getElementById("container").innerHTML = textHtml
          modifyContainer(document.getElementsByTagName("div")[0])
+      })
+   })
+}
+
+
+function updateDispGit(){
+   var url = "https://api-dev.calpoly.edu/dev/pets";
+   let headers = {"Content-Type": "application/json"};
+   let auth_token = getCookie("id_token")
+   if (auth_token) {
+      headers["Authorization"] = `Bearer ${auth_token}`;
+   }
+
+   fetch(url, {headers}).then(function(response) {
+      response.json().then(function(petsJson) {
+         var petKeys = Object.keys(petsJson);
+
+         for (var i = 0; i < petKeys.length; i++) {
+            var r = dispTblPet.createTHead().insertRow(0);
+            r.insertCell(i).innerHTML = key[i]
+         }
+
+         for(pet in petsJson) {
+            var row = dispTblPet.insertRow();
+            for (var i = 0; i < petKeys.length; i++) {
+               row.insertCell(i).innerHTML = pet.petKeys[i];
+            }
+         }
       })
    })
 }
@@ -40,4 +69,21 @@ function createScript(currNode){
    }
     
    return script;
+}
+
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
