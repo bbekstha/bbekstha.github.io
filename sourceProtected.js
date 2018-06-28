@@ -24,6 +24,7 @@ function updateDispGit(){
 
    fetch(url, {headers}).then(function(response) {
       response.json().then(function(petsJson) {
+console.log("MY PETS", petsJson)
          var petKeys = Object.keys(petsJson);
 
          for (var i = 0; i < petKeys.length; i++) {
