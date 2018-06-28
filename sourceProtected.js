@@ -20,9 +20,11 @@ console.log("HOME IS CLICKED")
 
 
 function updateDispPet(){
+console.log("GET AND INSERT PETS")
    var url = "https://api-dev.calpoly.edu/dev/pets";
-   let headers = {"Content-Type": "application/json"};
-   let auth_token = getCookie("id_token")
+   let headers = {"Content-Type": "application/json"} 
+
+   let auth_token = "eyJraWQiOiJTNlp6cWFZdzh2SlFcLyszUXRoUldnRGp6M0srTWFvOElTZWxST0RPSmh3TT0iLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoieGdyY2RBZkpZOFN6d1hwcEZqNHc5QSIsInN1YiI6IjBkZTA5NTZmLTE3ZjItNDE3OC05YzU0LTExODljNThmOTUyZCIsImF1ZCI6IjJmaW9yNjc3MGh2dG80dTZrdXEwODRqN2Z1IiwiZXZlbnRfaWQiOiJjMjg4OTQ3OC03YWZmLTExZTgtYTJiMC1iNTI0ZDkyNzIzNGQiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTUzMDIwOTk1MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLXdlc3QtMi5hbWF6b25hd3MuY29tXC91cy13ZXN0LTJfTGxvZFlneVFOIiwiY29nbml0bzp1c2VybmFtZSI6ImJzaHJlc3RoIiwiZXhwIjoxNTMwMjEzNTUzLCJpYXQiOjE1MzAyMDk5NTMsImVtYWlsIjoiYnNocmVzdGhAY2FscG9seS5lZHUifQ.K2F1gGB0MpLN93HZ0xczlK7X4GJTSkiMi854hcC8_w64vTZVYi8sHfrXQ1RIy5PFo0d0vTKnRv9-vYo1Etu2EYGWuv91EjeqPvPNrt0f_a80i6d7JuV1c9WFHUYhPYbfQYMr9GIBR1gZh_oyW4CIE5jMDpx554dLY3U-46ufQ1vrIMlvv8i8n1MNrbpXmt40J1RqRzaoNyxQp6CosfYFWOjr4XhxpO9UD9ospvMRddcvoeucRIcKRgvDGqIkK6NOhVtHuDDp1lDV9c8O520-SDROvXSk9KgQzIBiQ6gAMd4xfGERgdSsIM_gj9Z0yXcPxslQOfeLkNCzvZqQ08RsHw"
    if (auth_token) {
       headers["Authorization"] = `Bearer ${auth_token}`;
    }
