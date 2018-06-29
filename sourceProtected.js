@@ -37,8 +37,8 @@ console.log("PETSS", petsJson)
 console.log("KEY", key)
             var petKeys = Object.keys(petsJson[key]);
             var row;
+console.log("KEYS", petsJson[key])
             if(key === '0') {
-console.log("KEYS", petKeys)
                row = dispTblPet.createTHead().insertRow(0);
                for (petKey in petKeys) {
                   row.insertCell().innerHTML = petKeys[petKey]
@@ -47,7 +47,9 @@ console.log("KEYS", petKeys)
 
             row = dispTblPet.insertRow();
             for(petKey in petKeys) {
-console.log("VALUE", petsJson[key].petKeys[petKey])
+               var keyName = petKeys[petKey]
+console.log("KEYNAME", keyName)               
+console.log("VALUE", petsJson[key].keyName)
                row.insertCell().innerHTML = petsJson[key].petKeys[petKey]
             }
          } 
