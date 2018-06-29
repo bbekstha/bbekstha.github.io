@@ -42,49 +42,49 @@ console.log("GET AND INSERT PETS")
       headers["Authorization"] = `Bearer ${auth_token}`;
    }
 
-   var xhr = new XMLHttpRequest();
-   xhr.withCredentials = true;
+   // var xhr = new XMLHttpRequest();
+   // xhr.withCredentials = true;
 
-   xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === 4) {
-         console.log(this.responseText);
-      }
-   });
+   // xhr.addEventListener("readystatechange", function () {
+   //    if (this.readyState === 4) {
+   //       console.log(this.responseText);
+   //    }
+   // });
 
-   xhr.open("GET", url);
-   if(auth_token) {
-      xhr.setRequestHeader("Authorization", `Bearer ${auth_token}`);
-   }
-   xhr.setRequestHeader("Access-Control-Allow-Origin", 'http://bbekstha.github.io/')
-   xhr.setRequestHeader("Access-Control-Allow-Credentials", true)
-   xhr.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, Authorization")
-   // xhr.setRequestHeader("Access-Control-Request-Headers", "Content-Type, Authorization")
-   xhr.setRequestHeader("Access-Control-Allow-Expose-Headers", "Content-Type, Location")
-   xhr.setRequestHeader("Access-Control-Allow-Methods", "GET")
-   xhr.setRequestHeader("Cache-Control", "no-cache");
-//    fetch(url, {credentials: 'include', headers, mode:'no-cors'}).then(function(response) {
-//       response.json().then(function(petsJson) {
-// console.log("MY PETS", petsJson)
-//          var petKeys = Object.keys(petsJson);
+   // xhr.open("GET", url);
+   // if(auth_token) {
+   //    xhr.setRequestHeader("Authorization", `Bearer ${auth_token}`);
+   // }
+   // xhr.setRequestHeader("Access-Control-Allow-Origin", 'http://bbekstha.github.io/')
+   // xhr.setRequestHeader("Access-Control-Allow-Credentials", true)
+   // xhr.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, Authorization")
+   // // xhr.setRequestHeader("Access-Control-Request-Headers", "Content-Type, Authorization")
+   // xhr.setRequestHeader("Access-Control-Allow-Expose-Headers", "Content-Type, Location")
+   // xhr.setRequestHeader("Access-Control-Allow-Methods", "GET")
+   // xhr.setRequestHeader("Cache-Control", "no-cache");
+   fetch(url, {credentials: 'include', headers, mode:'cors'}).then(function(response) {
+      response.json().then(function(petsJson) {
+console.log("MY PETS", petsJson)
+         var petKeys = Object.keys(petsJson);
 
-//          for (var i = 0; i < petKeys.length; i++) {
-//             var r = dispTblPet.createTHead().insertRow(0);
-//             r.insertCell(i).innerHTML = key[i]
-//          }
+         for (var i = 0; i < petKeys.length; i++) {
+            var r = dispTblPet.createTHead().insertRow(0);
+            r.insertCell(i).innerHTML = key[i]
+         }
 
-//          for(pet in petsJson) {
-//             var row = dispTblPet.insertRow();
-//             for (var i = 0; i < petKeys.length; i++) {
-//                row.insertCell(i).innerHTML = pet.petKeys[i];
-//             }
-//          }
-//       })
-//    })
-   xhr.onload = function() {
-      console.log(xhr.response)
-   }
+         for(pet in petsJson) {
+            var row = dispTblPet.insertRow();
+            for (var i = 0; i < petKeys.length; i++) {
+               row.insertCell(i).innerHTML = pet.petKeys[i];
+            }
+         }
+      })
+   })
+   // xhr.onload = function() {
+   //    console.log(xhr.response)
+   // }
 
-   xhr.send()
+   // xhr.send()
 }
 
 function modifyContainer(startNode) {
