@@ -2,11 +2,11 @@ var stockBtn = document.getElementById("to_stock");
 var repoBtn = document.getElementById("to_repo");
 var protectedBtn = document.getElementById("to_protected");
 var hashFrag = window.location.hash.substring(1)
-
+console.log("SAVING TO COOKIE", hashFrag.replace("&", "/n"))
 
 window.onload = function(){
     if(hashFrag){
-        console.log("SAVING TO COOKIE", hashFrag.replace("&", "/n"))
+        
         window.location = "https://bbekstha.github.io"
         document.cookie = hashFrag.replace("&", ";");
     }
