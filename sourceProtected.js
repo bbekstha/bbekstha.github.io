@@ -35,9 +35,11 @@ console.log("PETSS", petsJson)
 
          for(key in keys) {
 console.log("KEY", key)
-            var petKeys = Object.keys(petsJson[key]);
-            var row;
-console.log("KEYS", petsJson[key])
+            var petJson = petsJson[key]
+            var petKeys = Object.keys(petJson);
+            var row;           
+console.log("KEYS", petJson)
+            
             if(key === '0') {
                row = dispTblPet.createTHead().insertRow(0);
                for (petKey in petKeys) {
@@ -47,10 +49,11 @@ console.log("KEYS", petsJson[key])
 
             row = dispTblPet.insertRow();
             for(petKey in petKeys) {
+               
                var keyName = petKeys[petKey]
 console.log("KEYNAME", keyName)               
-console.log("VALUE", petsJson[key].keyName)
-               row.insertCell().innerHTML = petsJson[key].petKeys[petKey]
+console.log("VALUE", petJson.keyName)
+               row.insertCell().innerHTML = petJson.keyName
             }
          } 
       })
