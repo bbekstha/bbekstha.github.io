@@ -30,9 +30,11 @@ console.log("GET AND INSERT PETS")
 
    fetch(url, {headers, mode:'cors'}).then(function(response) {
       response.json().then(function(petsJson) {
+console.log("PETSS", petsJson)
          var keys = Object.keys(petsJson);
 
          for(key in keys) {
+console.log("KEY", key)
             var petKeys = Object.keys(petsJson[key]);
             var row;
             if(!key) {
@@ -44,6 +46,7 @@ console.log("GET AND INSERT PETS")
 
             row = dispTblPet.insertRow();
             for(petKey in petKeys) {
+console.log("VALUE", petsJson[key].petKey)
                row.insertCell().innerHTML = petsJson[key].petKey
             }
          } 
