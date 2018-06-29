@@ -6,8 +6,8 @@ var hashFrag = window.location.hash.substring(1)
 
 window.onload = function(){
     if(hashFrag){
+        console.log("SAVING TO COOKIE", hashFrag.replace("&", "/n"))
         window.location = "https://bbekstha.github.io"
-console.log(hashFrag.replace("&", "/n"))
         document.cookie = hashFrag.replace("&", ";");
     }
 }
