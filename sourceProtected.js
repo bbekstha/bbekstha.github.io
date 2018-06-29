@@ -32,10 +32,10 @@ console.log("GET AND INSERT PETS")
       response.json().then(function(petsJson) {
 console.log("MY PETS", petsJson)
          var petKeys = Object.keys(petsJson);
-
+         var r = dispTblPet.createTHead().insertRow(0);
          for (var i = 0; i < petKeys.length; i++) {
 console.log("Value I", i)
-            var r = dispTblPet.createTHead().insertRow(0);
+            
             var c = r.insertCell(i)
             c.innerHTML = petKeys[i]
          }
