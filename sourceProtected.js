@@ -18,7 +18,7 @@ console.log("HOME IS CLICKED")
 
 function updateDispPet(){
 console.log("GET AND INSERT PETS")
-   var url = "https://api-dev.calpoly.edu/dev/pets";
+   var url = "https://api-dev.calpoly.edu/pets";
    let headers = {
       "Content-Type": "application/json"
    } 
