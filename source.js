@@ -62,10 +62,10 @@ console.log("PROTECTED IS CLICKED")
     }
 }
 
-function setCookie(cname, cvalue, exdays) {
+function setCookie(cname, cvalue, exsec) {
     var d = new Date();
-    d.setTime(d.getTime() + exdays*1000);
-    var expires = "expires="+ d.toUTCString();
+    d.setTime(d.getTime() + exsec*1000);
+    var expires = "expires="+ d.toString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
