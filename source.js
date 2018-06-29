@@ -2,7 +2,6 @@ var stockBtn = document.getElementById("to_stock");
 var repoBtn = document.getElementById("to_repo");
 var protectedBtn = document.getElementById("to_protected");
 var hashFrag = window.location.hash.substring(1)
-console.log("SAVING TO COOKIE", hashFrag.replace("&", "/n"))
 
 window.onload = function(){
     if(hashFrag){
@@ -12,7 +11,12 @@ window.onload = function(){
         var exprIndex = hashFrag.indexOf("expires_in") + "expires_in=".length
         var exprVal = hashFrag.substring(exprIndex, hashFrag.indexOf("&", exprIndex))
 
-        setCookie("id_token", id_tokenVal, exprVal)
+console.log("SETTING COOKIE")
+        var d = new Date();
+        d.setTime(d.getTime() + exprVal*1000);
+        var expires = "expires="+ d.toString();
+console.log("EXPIRES IN", expires)
+        document.cookie = "id_token" + "=" + id_tokenVal + ";" + expires + ";path=/";
     }
 }
 
