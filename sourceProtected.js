@@ -52,8 +52,8 @@ console.log("KEYS", petJson)
                
                var keyName = petKeys[petKey]
 console.log("KEYNAME", keyName)               
-console.log("VALUE", petJson.keyName)
-               row.insertCell().innerHTML = petJson.keyName
+console.log("VALUE", petJson[keyName])
+               row.insertCell().innerHTML = petJson[keyName]
             }
          } 
       })
