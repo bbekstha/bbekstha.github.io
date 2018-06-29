@@ -38,6 +38,7 @@ console.log("KEY", key)
             var petKeys = Object.keys(petsJson[key]);
             var row;
             if(!key) {
+console.log("KEYS", petKeys)
                row = dispTblPet.createTHead().insertRow(0);
                for (petKey in petKeys) {
                   row.insertCell().innerHTML = petKey
