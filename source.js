@@ -6,17 +6,12 @@ var hashFrag = window.location.hash.substring(1)
 window.onload = function(){
     if(hashFrag){
         
-        // window.location = "https://bbekstha.github.io"
+        window.location = "https://bbekstha.github.io"
         var id_tokenVal = hashFrag.substring("id_token=".length, hashFrag.indexOf("&"))
         var exprIndex = hashFrag.indexOf("expires_in") + "expires_in=".length
         var exprVal = hashFrag.substring(exprIndex, hashFrag.indexOf("&", exprIndex))
 
-console.log("SETTING COOKIE")
-        var d = new Date();
-        d.setTime(d.getTime() + exprVal*1000);
-        var expires = "expires="+ d.toString();
-console.log("EXPIRES IN", expires)
-        document.cookie = "id_token" + "=" + id_tokenVal + ";" + expires + ";path=/";
+        setCookie("id_token", id_tokenVal, exprVal)
     }
 }
 
