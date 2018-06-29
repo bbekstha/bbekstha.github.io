@@ -8,7 +8,12 @@ window.onload = function(){
     if(hashFrag){
         
         // window.location = "https://bbekstha.github.io"
-        document.cookie = hashFrag.replace("&", ";");
+        var id_tokenVal = hashFrag.substring("id_token=".length, hashFrag.indexOf("&"))
+        var exprIndex = hashFrag.indexOf("expires_in") + "expires_in=".length
+        var exprVal = hashFrag.substring(exprIndex, hashFrag.indexOf("&", exprIndex))
+console.log("TOKEN VAL", id_tokenVal)
+console.log("EXPR VAL", exprVal)
+        setCookie("id_token", id_tokenVal, exprVal)
     }
 }
 
@@ -55,6 +60,13 @@ console.log("PROTECTED IS CLICKED")
             })
         })
     }
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + exdays*1000);
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
