@@ -41,14 +41,14 @@ console.log("KEY", key)
 console.log("KEYS", petKeys)
                row = dispTblPet.createTHead().insertRow(0);
                for (petKey in petKeys) {
-                  row.insertCell().innerHTML = petKey
+                  row.insertCell().innerHTML = petKeys[petKey]
                }
             }
 
             row = dispTblPet.insertRow();
             for(petKey in petKeys) {
-console.log("VALUE", petsJson[key].petKey)
-               row.insertCell().innerHTML = petsJson[key].petKey
+console.log("VALUE", petsJson[key].petKeys[petKey])
+               row.insertCell().innerHTML = petsJson[key].petKeys[petKey]
             }
          } 
       })
