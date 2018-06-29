@@ -30,23 +30,23 @@ console.log("GET AND INSERT PETS")
 
    fetch(url, {headers, mode:'cors'}).then(function(response) {
       response.json().then(function(petsJson) {
-console.log("MY PETS", petsJson)
-         var petKeys = Object.keys(petsJson);
-         var r = dispTblPet.createTHead().insertRow(0);
-         for (var i = 0; i < petKeys.length; i++) {
-console.log("Value I", i)
-            
-            var c = r.insertCell(i)
-            c.innerHTML = petKeys[i]
-         }
+         var keys = Object.keys(petsJson);
 
-         for(pet in petsJson) {
-            var row = dispTblPet.insertRow();
-console.log("PET", pet)
-            for (var i = 0; i < petKeys.length; i++) {
-               row.insertCell(i).innerHTML = pet.petKeys[i];
+         for(key in keys) {
+            var petKeys = Object.keys(petsJson[key]);
+            var row;
+            if(!key) {
+               row = dispTblPet.createTHead().insertRow(0);
+               for (petKey in petKeys) {
+                  row.insertCell().innerHTML = petKey
+               }
             }
-         }
+
+            row = dispTblPet.insertRow();
+            for(petKey in petKeys) {
+               row.insertCell().innerHTML = petsJson[key].petKey
+            }
+         } 
       })
    })
 }
