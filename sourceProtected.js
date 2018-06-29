@@ -23,6 +23,7 @@ console.log("GET AND INSERT PETS")
       "Content-Type": "application/json"
    } 
 
+   let auth_token = getCookie("id_token")
    if (auth_token) {
       headers["Authorization"] = `Bearer ${auth_token}`;
    }
@@ -34,7 +35,7 @@ console.log("MY PETS", petsJson)
 
          for (var i = 0; i < petKeys.length; i++) {
             var r = dispTblPet.createTHead().insertRow(0);
-            r.insertCell(i).innerHTML = petKeys[i]
+            r.insertCell(i).innerHTML = key[i]
          }
 
          for(pet in petsJson) {
