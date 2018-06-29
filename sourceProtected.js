@@ -34,6 +34,7 @@ console.log("MY PETS", petsJson)
          var petKeys = Object.keys(petsJson);
 
          for (var i = 0; i < petKeys.length; i++) {
+console.log("Value I", i)
             var r = dispTblPet.createTHead().insertRow(0);
             r.insertCell(i).innerHTML = petKeys[i]
          }
