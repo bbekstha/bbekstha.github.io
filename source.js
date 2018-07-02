@@ -69,9 +69,9 @@ console.log("SETTING COOKIE")
 
 function getCookie(cname) {
     let name = cname + "=";
-    let expire = "expires_in=";
-    var cnameVal;
-    var expireVal;
+    // let expire = "expires_in=";
+    // var cnameVal;
+    // var expireVal;
     var decodedCookie = decodeURIComponent(document.cookie);
     var cAttrb = decodedCookie.split(';');
 
@@ -81,17 +81,17 @@ function getCookie(cname) {
             c = c.substring(1);
         }
         if (c.indexOf(name) === 0) {
-            cnameVal = c.substring(name.length, c.length);
+            return c.substring(name.length, c.length);
             // break;
         }
-        if(c.indexOf(expire) === 0) {
-            expireVal = c.substring(expire.length, c.length);
-        }
+        // if(c.indexOf(expire) === 0) {
+        //     expireVal = c.substring(expire.length, c.length);
+        // }
     }
 
-    let currTime = new Date().getTime();
-    let expireTime = new Date(expireVal).getTime();
-    return currTime < expireTime ? cnameVal : "";
+    // let currTime = new Date().getTime();
+    // let expireTime = new Date(expireVal).getTime();
+    return "";
 }
 
 function modifyScript(startNode) {
