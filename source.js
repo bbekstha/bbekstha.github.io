@@ -2,9 +2,9 @@ var stockBtn = document.getElementById("to_stock");
 var repoBtn = document.getElementById("to_repo");
 var protectedBtn = document.getElementById("to_protected");
 // var hashFrag = window.location.hash.substring(1)
-
+var hashFrag;
 window.onload = function(){
-    var hashFrag = window.location.hash.substring(1)
+    hashFrag = window.location.hash.substring(1)
     if(hashFrag){
         
         window.location = "https://bbekstha.github.io"
