@@ -6,7 +6,6 @@ var hashFrag;
 window.onload = function(){
     hashFrag = window.location.hash.substring(1)
     if(hashFrag){
-        
         window.location = "https://bbekstha.github.io"
         var id_tokenVal = hashFrag.substring("id_token=".length, hashFrag.indexOf("&"))
         var exprIndex = hashFrag.indexOf("expires_in") + "expires_in=".length
@@ -63,26 +62,36 @@ console.log("PROTECTED IS CLICKED")
 function setCookie(cname, cvalue, exsec) {
 console.log("SETTING COOKIE")
     var d = new Date();
-    d.setTime(d.getTime() + exsec*1000);
+    d.setTime(d.getTime() + 45*1000);
     var expires = "expires="+ d.toUTCString();
-console.log("EXPIRES IN", expires)
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
-    var name = cname + "=";
+    let name = cname + "=";
+    let expire = "expires_in=";
+    var cnameVal;
+    var expireVal;
     var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
+    var cAttrb = decodedCookie.split(';');
+
+    for(var i = 0; i < cAttrb.length; i++) {
+        var c = cAttrb[i];
         while (c.charAt(0) == ' ') {
             c = c.substring(1);
         }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
+        if (c.indexOf(name) === 0) {
+            cnameVal = c.substring(name.length, c.length);
+            // break;
+        }
+        if(c.indexOf(expire) === 0) {
+            expireVal = c.substring(expire.length, c.length);
         }
     }
-    return "";
+
+    let currTime = new Date().getTime();
+    let expireTime = new Date(expireVal).getTime();
+    return currTime < expireTime ? cnameVal : "";
 }
 
 function modifyScript(startNode) {
