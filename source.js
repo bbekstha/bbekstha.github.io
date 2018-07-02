@@ -1,24 +1,16 @@
 var stockBtn = document.getElementById("to_stock");
 var repoBtn = document.getElementById("to_repo");
 var protectedBtn = document.getElementById("to_protected");
-var hashFrag = window.location.hash.substring(1)
+// var hashFrag = window.location.hash.substring(1)
 
 window.onload = function(){
-console.log("HASH FRAG", hashFrag)
+    var hashFrag = window.location.hash.substring(1)
     if(hashFrag){
         
-        // window.location = "https://bbekstha.github.io"
+        window.location = "https://bbekstha.github.io"
         var id_tokenVal = hashFrag.substring("id_token=".length, hashFrag.indexOf("&"))
         var exprIndex = hashFrag.indexOf("expires_in") + "expires_in=".length
         var exprVal = hashFrag.substring(exprIndex, hashFrag.indexOf("&", exprIndex))
-//         var d = new Date();
-//         d.setTime(d.getTime() + exprVal*1000);
-//         let cooky = "id_token=" + id_tokenVal
-//         let expires = "expires="+ d.toUTCString();
-// console.log("COOKY EXPIRES", cooky + expires)
-//         document.cookie =  cooky + ";" + expires + ";path=/";
-
-// console.log("EXPIRES IN", document.cookie)
         setCookie("id_token", id_tokenVal, exprVal)
     }
 }
