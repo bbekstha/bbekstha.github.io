@@ -14,7 +14,7 @@ console.log("HASH FRAG", hashFrag)
         var d = new Date();
         d.setTime(d.getTime() + exprVal*1000);
         let cooky = "id_token=" + id_tokenVal
-        let expires = "expires="+ d.toString();
+        let expires = "expires="+ d.toUTCString();
 console.log("COOKY EXPIRES", cooky + expires)
         document.cookie =  cooky + ";" + expires + ";path=/";
 
