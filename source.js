@@ -1,8 +1,8 @@
 var stockBtn = document.getElementById("to_stock");
 var repoBtn = document.getElementById("to_repo");
 var protectedBtn = document.getElementById("to_protected");
-// var hashFrag = window.location.hash.substring(1)
 var hashFrag;
+
 window.onload = function(){
     hashFrag = window.location.hash.substring(1)
     if(hashFrag){
@@ -69,9 +69,6 @@ console.log("SETTING COOKIE")
 
 function getCookie(cname) {
     let name = cname + "=";
-    // let expire = "expires_in=";
-    // var cnameVal;
-    // var expireVal;
     var decodedCookie = decodeURIComponent(document.cookie);
     var cAttrb = decodedCookie.split(';');
 
@@ -82,15 +79,8 @@ function getCookie(cname) {
         }
         if (c.indexOf(name) === 0) {
             return c.substring(name.length, c.length);
-            // break;
         }
-        // if(c.indexOf(expire) === 0) {
-        //     expireVal = c.substring(expire.length, c.length);
-        // }
     }
-
-    // let currTime = new Date().getTime();
-    // let expireTime = new Date(expireVal).getTime();
     return "";
 }
 
