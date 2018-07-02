@@ -4,6 +4,7 @@ var protectedBtn = document.getElementById("to_protected");
 var hashFrag = window.location.hash.substring(1)
 
 window.onload = function(){
+console.log("HASH FRAG", hashFrag)
     if(hashFrag){
         
         window.location = "https://bbekstha.github.io"
