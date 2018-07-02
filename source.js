@@ -7,7 +7,7 @@ window.onload = function(){
 console.log("HASH FRAG", hashFrag)
     if(hashFrag){
         
-        window.location = "https://bbekstha.github.io"
+        // window.location = "https://bbekstha.github.io"
         var id_tokenVal = hashFrag.substring("id_token=".length, hashFrag.indexOf("&"))
         var exprIndex = hashFrag.indexOf("expires_in") + "expires_in=".length
         var exprVal = hashFrag.substring(exprIndex, hashFrag.indexOf("&", exprIndex))
