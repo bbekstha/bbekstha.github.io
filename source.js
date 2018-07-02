@@ -15,7 +15,7 @@ console.log("HASH FRAG", hashFrag)
         d.setTime(d.getTime() + exprVal*1000);
         var expires = "expires="+ d.toString();
 // console.log("EXPIRES IN", expires)
-        document.cookie = id_token + "=" + id_tokenVal + ";" + expires + ";path=/";
+        document.cookie = "id_token" + "=" + id_tokenVal + ";" + expires + ";path=/";
 
 console.log("EXPIRES IN", document.cookie)
         // setCookie("", id_tokenVal, exprVal)
