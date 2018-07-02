@@ -13,9 +13,10 @@ console.log("HASH FRAG", hashFrag)
         var exprVal = hashFrag.substring(exprIndex, hashFrag.indexOf("&", exprIndex))
         var d = new Date();
         d.setTime(d.getTime() + exprVal*1000);
-        var expires = "expires="+ d.toString();
-// console.log("EXPIRES IN", expires)
-        document.cookie = "id_token" + "=" + id_tokenVal + ";" + expires + ";path=/";
+        let cooky = "id_token=" + id_tokenVal
+        let expires = "expires="+ d.toString();
+console.log("COOKY EXPIRES", cooky + expires)
+        document.cookie =  cooky + ";" + expires + ";path=/";
 
 console.log("EXPIRES IN", document.cookie)
         // setCookie("", id_tokenVal, exprVal)
