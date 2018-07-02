@@ -62,7 +62,7 @@ console.log("PROTECTED IS CLICKED")
 function setCookie(cname, cvalue, exsec) {
 console.log("SETTING COOKIE")
     var d = new Date();
-    d.setTime(d.getTime() + 45*1000);
+    d.setTime(d.getTime() + exsec*1000);
     var expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
