@@ -21,7 +21,7 @@ console.log("GET AND INSERT PETS")
    var url = "https://api-dev.calpoly.edu/pets";
    let headers = {
       "Content-Type": "application/json"
-   } 
+   }
 
    let auth_token = getCookie("id_token")
    if (auth_token) {
@@ -30,13 +30,14 @@ console.log("GET AND INSERT PETS")
 
    fetch(url, {headers, mode:'cors'}).then(function(response) {
       response.json().then(function(petsJson) {
+console.log("PETS", petsJson)
          var keys = Object.keys(petsJson);
 
          for(key in keys) {
             var petJson = petsJson[key]
             var petKeys = Object.keys(petJson);
-            var row;           
-            
+            var row;
+
             if(key === '0') {
                row = dispTblPet.createTHead().insertRow(0);
                for (petKey in petKeys) {
@@ -49,7 +50,7 @@ console.log("GET AND INSERT PETS")
                var keyName = petKeys[petKey]
                row.insertCell().innerHTML = petJson[keyName]
             }
-         } 
+         }
       })
    })
 }
@@ -57,7 +58,7 @@ console.log("GET AND INSERT PETS")
 function modifyContainer(startNode) {
    if (startNode.tagName === 'SCRIPT' ) {
       startNode.parentNode.replaceChild(createScript(startNode), startNode);
-   } 
+   }
    else if(startNode.tagName === 'H1' && !h1Count) {
       startNode.parentNode.removeChild(startNode);
       h1Count++;
@@ -79,7 +80,7 @@ function createScript(currNode){
    for( var i = currNode.attributes.length-1; i >= 0; i-- ) {
       script.setAttribute(currNode.attributes[i].name, currNode.attributes[i].value );
    }
-    
+
    return script;
 }
 
