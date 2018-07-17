@@ -60,7 +60,7 @@ protectedBtn.onclick = function() {
    }
 }
 
-repoBtn.onclick = function() {
+prsnBtn.onclick = function() {
    console.log("PERSON SEARCH IS CLICKED")
    fetch("prsnSearch.html").then(function (response) {
       response.text().then(function (textHtml) {
