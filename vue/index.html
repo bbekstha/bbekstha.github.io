@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+	<title> Home </title>
+	<link href="format.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h> CalPoly Home </h>
+    <router-view>
+      <component :is="currentView" @stock-click='updateView' @repo-click='updateView' @go-home='updateView'></component>
+    </router-view>
+  </div>
+  <script src='index.js'></script>
+</body>
+</html>
