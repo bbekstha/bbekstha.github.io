@@ -42,7 +42,7 @@ const stock = {
 const repo = {
   template: `
   	<div id='contentItems'>
-  		<input type='text' id="input" @keyup.enter='displayRepos'>
+  		<input type='text' id="Input" @keyup.enter='displayRepos'>
   		<button class='button' @click='displayRepos'> Display repos </button>
     	<button class='button' @click='goHome'> Go Home </button>
     </div>

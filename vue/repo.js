@@ -1,7 +1,12 @@
 
 function accessFunction(){
 	var input = document.getElementById("Input").value;
-
+	if(!input) {
+		createDiv("errorMess", "error", "contentItems");
+		let erro = document.getElementById("errorMess")
+		erro.innerHTML = "<h2> Enter valid access token and try again </h2>"
+		return
+	}
 	var url = `https://api.github.com/user/repos?access_token=${input}`
 
 	var dispTblGit = document.getElementById("gitRepos");
