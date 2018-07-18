@@ -21,13 +21,16 @@ const home = {
 
 const stock = {
   template: `
-  	<div id='content'>
-  		<input type='text'>
-  		<button class='button'> Search stock </button>
+  	<div id='contentItems'>
+  		<input type='text' id="Input">
+  		<button class='button' @click='searchStock'> Search stock </button>
     	<button class='button' @click='goHome'> Go Home </button>
     </div>
   `,
   methods: {
+    searchStock: function() {
+      searchFunction()
+    },
   	goHome: function() {
     	console.log("Going home")
       this.$router.push('/')
@@ -38,13 +41,16 @@ const stock = {
 
 const repo = {
   template: `
-  	<div id='content'>
-  		<input type='text'>
+  	<div id='contentItems'>
+  		<input type='text' id="input">
   		<button class='button'> Display repos </button>
     	<button class='button' @click='goHome'> Go Home </button>
     </div>
   `,
   methods: {
+    displayRepos: function(){
+      accessFunction()
+    },
   	goHome: function() {
     	console.log("Going home")
       this.$router.push('/')
