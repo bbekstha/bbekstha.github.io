@@ -39,7 +39,7 @@ protectedBtn.onclick = function() {
    console.log("PROTECTED IS CLICKED")
 
    var auth_clientId = "2fior6770hvto4u6kuq084j7fu"
-   var redirUrl = "https://bbekstha.github.io/summerWebDev"
+   var redirUrl = "https://bbekstha.github.io/"
    var id_token = getCookie("id_token")
 
    if(!id_token) {

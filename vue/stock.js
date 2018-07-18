@@ -1,11 +1,11 @@
 
-function searchFunction(){
+function searchFunction(stockSymbol){
 	var error = document.getElementById("errorMess")
 	if (error != null){
 		error.parentNode.removeChild(error)
 	}
-	var searchVal = document.getElementById("Input").value
-	var url = `https://api.iextrading.com/1.0/stock/${searchVal}/company`;
+	// var searchVal = document.getElementById("Input").value
+	var url = `https://api.iextrading.com/1.0/stock/${stockSymbol}/company`;
 	console.log("MY URL", url);
 	createTable("stockTable", "contentItems")
 	let dispStock = document.getElementById("stockTable")
