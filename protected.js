@@ -13,7 +13,7 @@ function protectedContent(){
 		return;
 	}
 
-	createDiv("contentItems", "text", "app")
+	// createDiv("contentItems", "text", "app")
 	createParagraph("display", "contentItems");
 	createTable("petsTable", "contentItems");
 
