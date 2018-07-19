@@ -16,8 +16,7 @@ function protectedContent(){
 	createDiv("contentItems", "text")
 	createParagraph("display", "contentItems");
 	createTable("petsTable", "contentItems");
-	createButton("Go Home", "goHome(true)", "h", "contentItems");
-
+	
 	document.getElementById("display").innerHTML = "<h2>PROTECTED CONTENT " +
 	"ACCESS GRANTED</h2><br><h4> You can now view and buy pets</h4>";
 

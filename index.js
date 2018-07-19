@@ -22,8 +22,10 @@ const home = {
 		protectedClick: function() {
 			console.log("Protected clicked")
 			this.$router.push('/protected')
-			this.$emit('protected-click', 'protectedCont')
+			if(getCookie('id_token'))
+				this.$emit('protected-click', 'protectedCont')
 			protectedContent()
+
 		},
 		prsnSearchClick: function() {
 			console.log("Person clicked")
