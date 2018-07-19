@@ -1,15 +1,17 @@
 
 function searchFunction(stockSymbol){
+	// Remove previous error result if exists
 	var error = document.getElementById("errorMess")
 	if (error != null){
 		error.parentNode.removeChild(error)
 	}
-	// var searchVal = document.getElementById("Input").value
+
 	var url = `https://api.iextrading.com/1.0/stock/${stockSymbol}/company`;
-	console.log("MY URL", url);
+
 	createTable("stockTable", "contentItems")
 	let dispStock = document.getElementById("stockTable")
 
+	// request to get the stock of the entered company
 	var request = new XMLHttpRequest();
 	request.open('GET', url);
 	request.responseType = 'json';

@@ -5,6 +5,7 @@ function personSearch(searchParam) {
 	var loadingIcon = document.getElementById("loadIcon")
 	var homeBtn = document.getElementById("homeBtn")
 
+	// Remove any previous results if exists
 	if(resTbl) {
 		resTbl.parentNode.removeChild(resTbl);
 	}
@@ -17,14 +18,15 @@ function personSearch(searchParam) {
 		loadingIcon.parentNode.removeChild(loadingIcon);
 	}
 
+	// Go home disabled while searching
 	homeBtn.disabled = true;
 
-	// var input = document.getElementById("searchParam").value;
 	var url = `http://localhost:3000/personSearch?searchParam=${searchParam}`
 	url = encodeURI(url)
 
 	createDiv("loadIcon", "loader");
 
+	// request to retrieve the search result
 	fetch(url, {mode:'cors'}).then(function(response){
 		return response.json().then(function(myJson){
 			console.log(myJson)

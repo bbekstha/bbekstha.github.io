@@ -1,4 +1,10 @@
-// Defining components required
+// Defining components required \\
+// Component definition includes:
+// 	- template: component elements and rendering
+// 	- methods: component methods used by the elements such as button
+// 		and other helper methods
+
+// home(root) component definition
 const home = {
 	template: `
 	<div id='ogB'>
@@ -12,19 +18,19 @@ const home = {
 		stockClick: function() {
 			console.log("Stock clicked")
 			this.$router.push('/stock')
-			this.$emit('stock-click', 'stock')
+			// this.$emit('stock-click', 'stock')
 		},
 		repoClick: function() {
 			console.log("Repo Clicked")
 			this.$router.push('/repo')
-			this.$emit('repo-click', 'repo')
+			// this.$emit('repo-click', 'repo')
 		},
 		protectedClick: function() {
 			console.log("Protected clicked")
 
 			if(getCookie('id_token')){
 				this.$router.push('/protected')
-				this.$emit('protected-click', 'protectedCont')
+				// this.$emit('protected-click', 'protectedCont')
 			} else {
 				authenticate()
 			}
@@ -33,11 +39,14 @@ const home = {
 		prsnSearchClick: function() {
 			console.log("Person clicked")
 			this.$router.push('/personSearch')
-			this.$emit('prsn-search-click', 'searchPerson')
+			// this.$emit('prsn-search-click', 'searchPerson')
 		}
 	}
 }
 
+// stock component definition
+// data:
+// 	- stockSymbol: variable bounded to the input text value
 const stock = {
 	data: function() {
 		return {
@@ -58,11 +67,14 @@ const stock = {
 		goHome: function() {
 			console.log("Going home")
 			this.$router.push('/')
-			this.$emit('go-home', 'home')
+			// this.$emit('go-home', 'home')
 		}
 	}
 }
 
+// repo component definition
+// data:
+// 	- accessToken: variable bounded to the input text value
 const repo = {
 	data: function() {
 		return {
@@ -82,11 +94,14 @@ const repo = {
 		goHome: function() {
 			console.log("Going home")
 			this.$router.push('/')
-			this.$emit('go-home', 'home')
+			// this.$emit('go-home', 'home')
 		}
 	}
 }
 
+// search-person component definition
+// data:
+// 	-searchParam: variable bounded to the input text value
 const searchPerson = {
 	data: function() {
 		return {
@@ -106,11 +121,12 @@ const searchPerson = {
 		goHome: function() {
 			console.log("Going home")
 			this.$router.push('/')
-			this.$emit('go-home', 'home')
+			// this.$emit('go-home', 'home')
 		}
 	}
 }
 
+// protected-cont component definition
 const protectedCont = {
 	template: `
 		<div id='contentItems'>
@@ -120,14 +136,14 @@ const protectedCont = {
 		goHome: function() {
 			console.log("Going home")
 			this.$router.push('/')
-			this.$emit('go-home', 'home')
+			// this.$emit('go-home', 'home')
 		}
 	},
 	mounted: protectedContent
 }
 
 // Setup for routing
-// All possible routes and their respective components
+// All routes and their respective components
 const routes = [
 	{ path: '/', component: home },
 	{ path: '/stock', component: stock },
@@ -135,23 +151,34 @@ const routes = [
 	{ path: '/protected', component: protectedCont},
 	{ path: '/personSearch', component: searchPerson}
 ]
-// Creating instance of the router
+// Creating instance of the router with the routes defined above
 const router = new VueRouter({
 	routes
 })
 
 // Root vue instance
+// router: vue router instance to manage deeplinks
+// data:
+// 	- currentView: variable keeping track of the current component
+// 		used by component element in 'index.html'
+// 		to dynamically render the componet specified
+// methods:
+// 	- updateView:
+// 		- handles the navigating through dynamic rendering of the components
+// 		- updated based on the 'currentView' property
+// mounted function - function to retrieve authoriztion token
+// 	for the protected content
 new Vue({
 	el: "#app",
 	router,
-	data: {
-		currentView : 'home'
-	},
-	methods: {
-		updateView : function(newView) {
-			this.currentView = newView
-		}
-	},
+	// data: {
+	// 	currentView : 'home'
+	// },
+	// methods: {
+	// 	updateView : function(newView) {
+	// 		this.currentView = newView
+	// 	}
+	// },
 	mounted: function(){
 		let keyUrl = location.hash.substring(1);
 		if (keyUrl.includes("id_token")){

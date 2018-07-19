@@ -1,4 +1,6 @@
-
+// Returns the value of the cookie
+// specified by the given cookie name (cname)
+// If invalid cookie name is given returns ""
 function getCookie(cname) {
 	console.log("inside getCookie()");
 	var name = cname + "=";
@@ -16,6 +18,10 @@ function getCookie(cname) {
 	return "";
 }
 
+// Sets the cookie with given values
+// cname - cookie name
+// cvalue - cookie value
+// exsecs - cookie life amounts in seconds
 function setCookie(cname, cvalue, exsecs) {
 	var d = new Date();
 	d.setTime(d.getTime() + exsecs*1000)

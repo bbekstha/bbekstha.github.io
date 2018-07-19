@@ -1,7 +1,8 @@
 
 function accessFunction(accessToken){
-	// var input = document.getElementById("Input").value;
 	console.log(accessToken);
+
+	// display error if miising accessToken
 	if(!accessToken) {
 		createDiv("errorMess", "error", "contentItems");
 		let erro = document.getElementById("errorMess")
@@ -10,9 +11,11 @@ function accessFunction(accessToken){
 	}
 	var url = `https://api.github.com/user/repos?access_token=${accessToken}`
 
+	// Setup to remove table and paragraph if exists
 	var dispTblGit = document.getElementById("gitRepos");
 	var erro = document.getElementById("errorMess");
 
+	// Remove previous results if exists
 	if(dispTblGit) {
 		dispTblGit.parentNode.removeChild(dispTblGit);
 	}
@@ -20,6 +23,7 @@ function accessFunction(accessToken){
 		erro.parentNode.removeChild(erro)
 	}
 
+	// request to get the list of repos
 	fetch(url).then(function(response){
 		return response.json();
 	})

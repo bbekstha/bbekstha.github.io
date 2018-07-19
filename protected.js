@@ -1,4 +1,4 @@
-
+// Redirect to login if missing cookie with name 'id_token'
 function authenticate() {
 	if (getCookie("id_token") == ""){
 		let client_id = "2fior6770hvto4u6kuq084j7fu";
@@ -24,10 +24,12 @@ function protectedContent(){
 
 	let dispTblPet = document.getElementById("petsTable");
 	var url = "https://api-dev.calpoly.edu/pets";
+
 	const headers = new Headers();
 	headers.append('Content-Type', 'application/json');
 	headers.append('Authorization', `Bearer ${id_token}`);
-	
+
+	// make request to get the protected data
 	fetch(url, {headers: headers, mode : 'cors'}).then(function(response){
 		return response.json();
 	})
