@@ -1,5 +1,5 @@
 
-function protectedContent(){
+document.load = function protectedContent(){
 	console.log("inside protectedContent()");
 
 	var id_token = getCookie("id_token");
