@@ -13,10 +13,10 @@ function protectedContent(){
 		return;
 	}
 
-	createDiv("contentItems", "text")
+	createDiv("contentItems", "text", "app")
 	createParagraph("display", "contentItems");
 	createTable("petsTable", "contentItems");
-	
+
 	document.getElementById("display").innerHTML = "<h2>PROTECTED CONTENT " +
 	"ACCESS GRANTED</h2><br><h4> You can now view and buy pets</h4>";
 
