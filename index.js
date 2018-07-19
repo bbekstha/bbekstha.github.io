@@ -123,7 +123,7 @@ const protectedCont = {
 			this.$emit('go-home', 'home')
 		}
 	},
-	computed: protectedContent
+	updated: protectedContent
 }
 
 // Setup for routing
