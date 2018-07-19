@@ -15,44 +15,42 @@ function protectedContent(){
 
 	authenticate();
 	let id_token = getCookie('id_token');
-	// createDiv("contentItems", "text", "app")
-	// window.onload=function() {
-		createParagraph("display", "contentItems");
-		createTable("petsTable", "contentItems");
 
-		document.getElementById("display").innerHTML = "<h2>PROTECTED CONTENT " +
-		"ACCESS GRANTED</h2><br><h4> You can now view and buy pets</h4>";
+	createParagraph("display", "contentItems");
+	createTable("petsTable", "contentItems");
 
-		let dispTblPet = document.getElementById("petsTable");
-		var url = "https://api-dev.calpoly.edu/pets";
-		const headers = new Headers();
-		headers.append('Content-Type', 'application/json');
-		headers.append('Authorization', `Bearer ${id_token}`);
+	document.getElementById("display").innerHTML = "<h2>PROTECTED CONTENT " +
+	"ACCESS GRANTED</h2><br><h4> You can now view and buy pets</h4>";
 
-		fetch(url, {headers: headers, mode : "cors"}).then(function(response){
-			return response.json();
-		})
-		.then(function(petsJson){
+	let dispTblPet = document.getElementById("petsTable");
+	var url = "https://api-dev.calpoly.edu/pets";
+	const headers = new Headers();
+	headers.append('Content-Type', 'application/json');
+	headers.append('Authorization', `Bearer ${id_token}`);
+console.log(id_token)
+	fetch(url, {headers: headers, mode : 'cors'}).then(function(response){
+		return response.json();
+	})
+	.then(function(petsJson){
 
-			var keys = Object.keys(petsJson);
-			var petKeys = Object.keys(petsJson[0]);
-			for(key in keys) {
-				var petJson = petsJson[key]
+		var keys = Object.keys(petsJson);
+		var petKeys = Object.keys(petsJson[0]);
+		for(key in keys) {
+			var petJson = petsJson[key]
 
-				var row = dispTblPet.insertRow();
-				row.className = "tBodyRow"
-				for(petKey in petKeys) {
-					var keyName = petKeys[petKey]
-					row.insertCell().innerHTML = petJson[keyName]
-				}
+			var row = dispTblPet.insertRow();
+			row.className = "tBodyRow"
+			for(petKey in petKeys) {
+				var keyName = petKeys[petKey]
+				row.insertCell().innerHTML = petJson[keyName]
 			}
+		}
 
-			row = dispTblPet.createTHead().insertRow(0);
-			row.className = "thRow"
-			for (petKey in petKeys) {
-				row.insertCell().innerHTML = '<b>' + petKeys[petKey] + '</b>'
-			}
-		})
-		return;
-	// }
+		row = dispTblPet.createTHead().insertRow(0);
+		row.className = "thRow"
+		for (petKey in petKeys) {
+			row.insertCell().innerHTML = '<b>' + petKeys[petKey] + '</b>'
+		}
+	})
+	return;
 }
