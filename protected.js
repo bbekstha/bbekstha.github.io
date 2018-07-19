@@ -17,11 +17,11 @@ function protectedContent(){
 	let id_token = getCookie('id_token');
 	// createDiv("contentItems", "text", "app")
 	// window.onload=function() {
-		// createParagraph("display", "contentItems");
+		createParagraph("display", "contentItems");
 		createTable("petsTable", "contentItems");
 
-		// document.getElementById("display").innerHTML = "<h2>PROTECTED CONTENT " +
-		// "ACCESS GRANTED</h2><br><h4> You can now view and buy pets</h4>";
+		document.getElementById("display").innerHTML = "<h2>PROTECTED CONTENT " +
+		"ACCESS GRANTED</h2><br><h4> You can now view and buy pets</h4>";
 
 		let dispTblPet = document.getElementById("petsTable");
 		var url = "https://api-dev.calpoly.edu/pets";
