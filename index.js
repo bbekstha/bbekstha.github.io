@@ -23,8 +23,10 @@ const home = {
 			console.log("Protected clicked")
 			this.$router.push('/protected')
 			console.log('Cookie', getCookie('id_token'))
-			if(getCookie('id_token'))
+			if(getCookie('id_token')){
+				console.log("HERE")
 				this.$emit('protected-click', 'protectedCont')
+			}
 			protectedContent()
 
 		},
