@@ -1,7 +1,6 @@
 
 function authenticate() {
-	var id_token = getCookie("id_token");
-	if (id_token == ""){
+	if (getCookie("id_token") == ""){
 		let client_id = "2fior6770hvto4u6kuq084j7fu";
 		let redirect_uri = "https://bbekstha.github.io";
 		let loginUrl = `https://cognito-dev.calpoly.edu/login?response_type=token&` +
