@@ -55,6 +55,7 @@ function createInputBox(id, parentId){
 
 // Creates html "p" elements
 function createParagraph(id, parentId){
+	console.log("Parent", parentId)
 	var parentNode = document.getElementById(parentId)
 	var p = document.createElement("P");
 	p.setAttribute("type", "text");
