@@ -14,7 +14,7 @@ function protectedContent(){
 	console.log("inside protectedContent()");
 
 	authenticate();
-	let id_token = getCookie('id_token');
+	let id_token = getCookie('id_token').substring(1);
 
 	createParagraph("display", "contentItems");
 	createTable("petsTable", "contentItems");
