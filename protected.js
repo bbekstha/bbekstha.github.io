@@ -1,7 +1,5 @@
 
-function protectedContent(){
-	console.log("inside protectedContent()");
-
+function authenticate() {
 	var id_token = getCookie("id_token");
 	if (id_token == ""){
 		let client_id = "2fior6770hvto4u6kuq084j7fu";
@@ -10,11 +8,16 @@ function protectedContent(){
 		`client_id=${client_id}&redirect_uri=${redirect_uri}`;
 
 		window.location = loginUrl
-		return;
 	}
+}
+
+function protectedContent(){
+	console.log("inside protectedContent()");
+
+	authenticate();
 
 	// createDiv("contentItems", "text", "app")
-	window.onload=function() {
+	// window.onload=function() {
 		createParagraph("display", "contentItems");
 		createTable("petsTable", "contentItems");
 
@@ -52,5 +55,5 @@ function protectedContent(){
 			}
 		})
 		return;
-	}
+	// }
 }

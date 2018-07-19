@@ -120,7 +120,8 @@ const protectedCont = {
 			this.$router.push('/')
 			this.$emit('go-home', 'home')
 		}
-	}
+	},
+	mounted: protectedContent
 }
 
 // Setup for routing
