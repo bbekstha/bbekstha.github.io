@@ -55,13 +55,12 @@ function createInputBox(id, parentId){
 
 // Creates html "p" elements
 function createParagraph(id, parentId){
-	if(document.readyState == 'interactive' || document.readyState == 'complete') {
-		var parentNode = document.getElementById(parentId)
-		var p = document.createElement("P");
-		p.setAttribute("type", "text");
-		p.setAttribute("id", id);
-		parentNode.appendChild(p);
-	}
+	var parentNode = document.getElementById(parentId)
+	console.log("Looking for", parentId, parentNode)
+	var p = document.createElement("P");
+	p.setAttribute("type", "text");
+	p.setAttribute("id", id);
+	parentNode.appendChild(p);
 }
 
 // Creates html "Table" elements
