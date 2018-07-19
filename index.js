@@ -27,7 +27,6 @@ const home = {
 				this.$emit('protected-click', 'protectedCont')
 			}
 			protectedContent()
-
 		},
 		prsnSearchClick: function() {
 			console.log("Person clicked")
