@@ -22,11 +22,11 @@ const home = {
 		protectedClick: function() {
 			console.log("Protected clicked")
 
-			if(getCookie('id_token')){
+			// if(getCookie('id_token')){
 				this.$router.push('/protected')
 				this.$emit('protected-click', 'protectedCont')
-			}
-			protectedContent()
+			// }
+			// protectedContent()
 		},
 		prsnSearchClick: function() {
 			console.log("Person clicked")
@@ -120,7 +120,8 @@ const protectedCont = {
 			this.$router.push('/')
 			this.$emit('go-home', 'home')
 		}
-	}
+	},
+	mounted: protectedContent()
 }
 
 // Setup for routing
