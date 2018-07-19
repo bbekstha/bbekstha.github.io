@@ -164,4 +164,5 @@ new Vue({
 				window.location = window.location.origin
 			}
 	   })
+	}
 })
