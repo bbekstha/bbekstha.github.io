@@ -15,7 +15,7 @@ function protectedContent(){
 	console.log("inside protectedContent()");
 
 	authenticate();
-
+	let id_token = getCookie('id_token');
 	// createDiv("contentItems", "text", "app")
 	// window.onload=function() {
 		createParagraph("display", "contentItems");
