@@ -27,7 +27,7 @@ function protectedContent(){
 	const headers = new Headers();
 	headers.append('Content-Type', 'application/json');
 	headers.append('Authorization', `Bearer ${id_token}`);
-console.log(id_token)
+	
 	fetch(url, {headers: headers, mode : 'cors'}).then(function(response){
 		return response.json();
 	})
