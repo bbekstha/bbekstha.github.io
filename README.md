@@ -26,9 +26,15 @@ Project layout:
    - cookieFunction.js
       - Contains getter and setter methods for cookie storage.
    - stock.js, repo.js, protected.js, personSearch.js
-      - Contains functions to handle the functionality of respective button clicks
+      - Contains functions to handle functionalities of respective components
    - index.js
       - Contains the components, routes and root vue instance.
 
 Programming approach:
-   
+   - index.js
+      - Routing navigation and rendering respective components are handled by the vueRouter through the root vue instance.
+      - Routes are defined with the path and the component relating to the path.
+      - Component for each page is defined with necessary properties, rendering elements and the methods required.
+      - Home buttons and deeplinks listed above can be used to navigate to different views
+   - stock.js, repo.js, protected.js, personSearch.js
+      As mentioned above in the project layout section, these files implement methods to handle the functionalities of the respective pages.
