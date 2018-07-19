@@ -145,5 +145,18 @@ new Vue({
 		updateView : function(newView) {
 			this.currentView = newView
 		}
+	},
+	mounted: function(){
+		let keyUrl = location.hash.substring(1);
+		if (keyUrl.includes("id_token")){
+			var id_tokenVal = keyUrl.substring("id_token=".length, keyUrl.indexOf("&"))
+			var exprIndex = keyUrl.indexOf("expires_in") + "expires_in=".length
+			var exprVal = keyUrl.substring(exprIndex, keyUrl.indexOf("&", exprIndex))
+
+			console.log("expiration time : ", exprVal);
+
+			setCookie("id_token", id_tokenVal, exprVal);
+			window.location = window.location.origin
+		}
 	}
 })
