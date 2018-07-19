@@ -4,7 +4,7 @@ const home = {
 	<div id='ogB'>
 	<button class='button' @click='stockClick'> Stock </button>
 	<button class='button' @click='repoClick'> Repo </button>
-	<button class='button' @click='protectedClick'> Proteted </button>
+	<button class='button' @click='protectedClick'> Protected </button>
 	<button class='button' @click='prsnSearchClick'> Person </button>
 	</div>
 	`,
@@ -22,13 +22,13 @@ const home = {
 		protectedClick: function() {
 			console.log("Protected clicked")
 			this.$router.push('/protected')
-			this.$emit('protected-click', 'protected')
+			this.$emit('protected-click', 'protectedCont')
 			protectedContent()
 		},
 		prsnSearchClick: function() {
 			console.log("Person clicked")
 			this.$router.push('/personSearch')
-			this.$emit('prsn-search-click', 'search-person')
+			this.$emit('prsn-search-click', 'searchPerson')
 		}
 	}
 }
@@ -43,7 +43,7 @@ const stock = {
 	<div id='contentItems'>
 	<input type='text' id="Input" @keyup.enter='searchStock' v-model='stockSymbol'>
 	<button class='button' @click='searchStock'> Search stock </button>
-	<button class='button' @click='goHome'> Go Home </button>
+	<button id='homeBtn' class='button' @click='goHome'> Go Home </button>
 	</div>
 	`,
 	methods: {
@@ -68,7 +68,7 @@ const repo = {
 		<div id='contentItems'>
 			<input type='text' id="Input" @keyup.enter='displayRepos' v-model='accessToken'>
 			<button class='button' @click='displayRepos'> Display repos </button>
-			<button class='button' @click='goHome'> Go Home </button>
+			<button id='homeBtn' class='button' @click='goHome'> Go Home </button>
 		</div>`,
 	methods: {
 		displayRepos: function(){
@@ -90,12 +90,12 @@ const searchPerson = {
 	},
 	template: `
 		<div id='contentItems'>
-			<input type='text' id="Input" @keyup.enter='personSearch' v-model='searchParam'>
-			<button class='button' @click='personSearch'> Search </button>
-			<button class='button' @click='goHome'> Go Home </button>
+			<input type='text' id="Input" @keyup.enter='findPerson' v-model='searchParam'>
+			<button class='button' @click='findPerson'> Search </button>
+			<button id='homeBtn' class='button' @click='goHome'> Go Home </button>
 		</div>`,
 	methods: {
-		displayRepos: function(){
+		findPerson: function(){
 			personSearch(this.searchParam)
 		},
 		goHome: function() {
@@ -106,10 +106,10 @@ const searchPerson = {
 	}
 }
 
-const protected = {
+const protectedCont = {
 	template: `
 		<div id='contentItems'>
-			<button class='button' @click='goHome'> Go Home </button>
+			<button id='homeBtn' class='button' @click='goHome'> Go Home </button>
 		</div>`,
 	methods: {
 		goHome: function() {
@@ -121,19 +121,20 @@ const protected = {
 }
 
 // Setup for routing
+// All possible routes and their respective components
 const routes = [
 	{ path: '/', component: home },
 	{ path: '/stock', component: stock },
 	{ path: '/repo', component: repo},
-	{ path: '/protected', component: protectedContent},
+	{ path: '/protected', component: protectedCont},
 	{ path: '/personSearch', component: searchPerson}
 ]
-
+// Creating instance of the router
 const router = new VueRouter({
 	routes
 })
 
-
+// Root vue instance
 new Vue({
 	el: "#app",
 	router,

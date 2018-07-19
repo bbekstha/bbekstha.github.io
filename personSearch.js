@@ -3,7 +3,7 @@ function personSearch(searchParam) {
 	var resTbl = document.getElementById("foundEntries")
 	var resMsg = document.getElementById("resultMessage")
 	var loadingIcon = document.getElementById("loadIcon")
-	var homeBtn = document.getElementById("h")
+	var homeBtn = document.getElementById("homeBtn")
 
 	if(resTbl) {
 		resTbl.parentNode.removeChild(resTbl);
