@@ -18,28 +18,19 @@ const home = {
 		stockClick: function() {
 			console.log("Stock clicked")
 			this.$router.push('/stock')
-			// this.$emit('stock-click', 'stock')
 		},
 		repoClick: function() {
 			console.log("Repo Clicked")
 			this.$router.push('/repo')
-			// this.$emit('repo-click', 'repo')
 		},
 		protectedClick: function() {
 			console.log("Protected clicked")
 			this.$router.push('/protected')
-			// if(getCookie('id_token')){
-			// 	this.$router.push('/protected')
-			// 	// this.$emit('protected-click', 'protectedCont')
-			// } else {
-			// 	authenticate()
-			// }
 
 		},
 		prsnSearchClick: function() {
 			console.log("Person clicked")
 			this.$router.push('/personSearch')
-			// this.$emit('prsn-search-click', 'searchPerson')
 		}
 	}
 }
@@ -67,7 +58,6 @@ const stock = {
 		goHome: function() {
 			console.log("Going home")
 			this.$router.push('/')
-			// this.$emit('go-home', 'home')
 		}
 	}
 }
@@ -94,7 +84,6 @@ const repo = {
 		goHome: function() {
 			console.log("Going home")
 			this.$router.push('/')
-			// this.$emit('go-home', 'home')
 		}
 	}
 }
@@ -121,7 +110,6 @@ const searchPerson = {
 		goHome: function() {
 			console.log("Going home")
 			this.$router.push('/')
-			// this.$emit('go-home', 'home')
 		}
 	}
 }
@@ -136,7 +124,6 @@ const protectedCont = {
 		goHome: function() {
 			console.log("Going home")
 			this.$router.push('/')
-			// this.$emit('go-home', 'home')
 		}
 	},
 	mounted: protectedContent
@@ -156,12 +143,13 @@ const router = new VueRouter({
 	routes
 })
 
-
+// For each route check if authentication is required
+// If route requires authentication and is not authenticated
+// direct to aws cognito for authentication
+// If authenticated, proceed with the routing
 router.beforeEach((to, from, next) => {
-	console.log("requiresAuth", to.meta.requiresAuth)
 	if(to.meta.requiresAuth) {
 		let auth = getCookie('id_token')
-		console.log("GOT AUTH", auth)
 		if(auth) {
 			next()
 		} else {
@@ -182,27 +170,17 @@ router.beforeEach((to, from, next) => {
 // 	- updateView:
 // 		- handles the navigating through dynamic rendering of the components
 // 		- updated based on the 'currentView' property
-// mounted function - function to retrieve authoriztion token
+// mounted function - function to retrieve authorization token
 // 	for the protected content
 new Vue({
 	el: "#app",
 	router,
-	// data: {
-	// 	currentView : 'home'
-	// },
-	// methods: {
-	// 	updateView : function(newView) {
-	// 		this.currentView = newView
-	// 	}
-	// },
 	mounted: function(){
 		let keyUrl = location.hash.substring(1);
 		if (keyUrl.includes("id_token")){
 			var id_tokenVal = keyUrl.substring("id_token=".length, keyUrl.indexOf("&"))
 			var exprIndex = keyUrl.indexOf("expires_in") + "expires_in=".length
 			var exprVal = keyUrl.substring(exprIndex, keyUrl.indexOf("&", exprIndex))
-
-			console.log("expiration time : ", exprVal);
 
 			setCookie("id_token", id_tokenVal, exprVal);
 			window.location = window.location.origin
