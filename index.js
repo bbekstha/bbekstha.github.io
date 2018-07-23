@@ -27,13 +27,13 @@ const home = {
 		},
 		protectedClick: function() {
 			console.log("Protected clicked")
-
-			if(getCookie('id_token')){
-				this.$router.push('/protected')
-				// this.$emit('protected-click', 'protectedCont')
-			} else {
-				authenticate()
-			}
+			this.$router.push('/protected')
+			// if(getCookie('id_token')){
+			// 	this.$router.push('/protected')
+			// 	// this.$emit('protected-click', 'protectedCont')
+			// } else {
+			// 	authenticate()
+			// }
 
 		},
 		prsnSearchClick: function() {
@@ -148,12 +148,24 @@ const routes = [
 	{ path: '/', component: home },
 	{ path: '/stock', component: stock },
 	{ path: '/repo', component: repo},
-	{ path: '/protected', component: protectedCont},
+	{ path: '/protected', component: protectedCont, meta: { requiresAuth: true }},
 	{ path: '/personSearch', component: searchPerson}
 ]
 // Creating instance of the router with the routes defined above
 const router = new VueRouter({
 	routes
+})
+
+
+router.beforeEach((to, from, next) => {
+	if(to.meta.requiresAuth) {
+		let auth = getCookie('id_token')
+		if(auth) {
+			next()
+		} else {
+			authenticate()
+		}
+	}
 })
 
 // Root vue instance

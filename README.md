@@ -22,7 +22,7 @@ Project layout:
    - format.css
       - Contains styling and formatting of the website elements.
    - DOMFunction.js
-      - Cotains function to create and modify the DOM elements.
+      - Contains function to create and modify the DOM elements.
    - cookieFunction.js
       - Contains getter and setter methods for cookie storage.
    - stock.js, repo.js, protected.js, personSearch.js
