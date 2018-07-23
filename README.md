@@ -3,7 +3,7 @@ Bibek Shrestha and Angelo De Laurentis under supervision of John Morton for Cal 
 link to site: https://bbekstha.github.io/
 
 What we want to show with this site:
-    Reproducing the vanilla js code with Vue.js cdn links
+    Reproducing the vanilla js code with Vue.js cdn links to compare pros and cons
     Single Page app using Vue.JS framework
         Routing with deep links
         Dynamic scalable framework
