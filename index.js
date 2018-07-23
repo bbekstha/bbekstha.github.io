@@ -158,13 +158,17 @@ const router = new VueRouter({
 
 
 router.beforeEach((to, from, next) => {
+	console.log("requiresAuth", to.meta.requiresAuth)
 	if(to.meta.requiresAuth) {
 		let auth = getCookie('id_token')
+		console.log("GOT AUTH", auth)
 		if(auth) {
 			next()
 		} else {
 			authenticate()
 		}
+	} else {
+		next()
 	}
 })
 

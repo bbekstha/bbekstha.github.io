@@ -3,18 +3,18 @@ Bibek Shrestha and Angelo De Laurentis under supervision of John Morton for Cal 
 link to site: https://bbekstha.github.io/
 
 What we want to show with this site:
-
+    Reproducing the vanilla js code with Vue.js cdn links
     Single Page app using Vue.JS framework
         Routing with deep links
         Dynamic scalable framework
     Querying APIs (Accessing an open stock API)
-        https://bbekstha.github.io/#/stock/
+        https://bbekstha.github.io/#/stock
     Querying protected APIs (Accessing github repos given access token)
-        https://bbekstha.github.io/#/repo/
+        https://bbekstha.github.io/#/repo
     Querying OpenID protected API (Handled with redirect to AWS cognito sign in)
-        https://bbekstha.github.io/#/protected/
+        https://bbekstha.github.io/#/protected
     Connecting to self made API hosted on Amazon SAM
-        https://bbekstha.github.io/#/personSearch/
+        https://bbekstha.github.io/#/personSearch
 
 Project layout:
    - README.md
@@ -38,3 +38,7 @@ Programming approach:
       - Home buttons and deeplinks listed above can be used to navigate to different views
    - stock.js, repo.js, protected.js, personSearch.js
       As mentioned above in the project layout section, these files implement methods to handle the functionalities of the respective pages.
+
+
+// Add difficulties/ easiness of using cdn links
+No node installation required
