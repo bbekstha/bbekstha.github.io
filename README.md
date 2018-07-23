@@ -39,6 +39,12 @@ Programming approach:
    - stock.js, repo.js, protected.js, personSearch.js
       As mentioned above in the project layout section, these files implement methods to handle the functionalities of the respective pages.
 
+Pros
+   - Routing and navigation between views is lot easier than vanillaJS
+      as it is handled through the vue-router
+   - Compared to CLI implementation, node and other
+      various package installation is not required.
+   - Cleaner templates and rendering of the routing views
 
-// Add difficulties/ easiness of using cdn links
-No node installation required
+Cons
+   - Multiple source files as script or functions to read other script files are needed for proper code management of large apps
