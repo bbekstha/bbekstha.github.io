@@ -4,7 +4,8 @@ function personSearch(searchParam) {
 	var resMsg = document.getElementById("resultMessage")
 	var loadingIcon = document.getElementById("loadIcon")
 	var homeBtn = document.getElementById("homeBtn")
-	
+	var erro = document.getElementById("errorMess");
+
 	//check for valid Input
 	if(searchParam.search("[a-zA-Z-0-9&\s'\/]+") < 0) {
 		createDiv("errorMess", "error", "contentItems");
@@ -25,7 +26,11 @@ function personSearch(searchParam) {
 	if(loadingIcon) {
 		loadingIcon.parentNode.removeChild(loadingIcon);
 	}
-
+	
+	if(erro) {
+		erro.parentNode.removeChild(erro)
+	}
+	
 	// Go home disabled while searching
 	homeBtn.disabled = true;
 
