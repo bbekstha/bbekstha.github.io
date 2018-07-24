@@ -4,7 +4,15 @@ function personSearch(searchParam) {
 	var resMsg = document.getElementById("resultMessage")
 	var loadingIcon = document.getElementById("loadIcon")
 	var homeBtn = document.getElementById("homeBtn")
-
+	
+	//check for valid Input
+	if(searchParam.search("[a-zA-Z-0-9&\s'\/]+") < 0) {
+		createDiv("errorMess", "error", "contentItems");
+		let erro = document.getElementById("errorMess")
+		erro.innerHTML = "<h2>  Must only contain characters: a-z, 0-9, -, /, &, ', and spaces </h2>"
+		return
+	}
+	
 	// Remove any previous results if exists
 	if(resTbl) {
 		resTbl.parentNode.removeChild(resTbl);
