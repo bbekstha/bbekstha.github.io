@@ -29,7 +29,7 @@ function personSearch(searchParam) {
 	// Go home disabled while searching
 	homeBtn.disabled = true;
 
-	var url = `http://localhost:3000/personSearch?searchParam=${searchParam}`
+	var url = `http://localhost:8080/personSearch?searchParam=${searchParam}`
 	url = encodeURI(url)
 
 	createDiv("loadIcon", "loader");
