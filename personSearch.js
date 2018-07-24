@@ -7,7 +7,7 @@ function personSearch(searchParam) {
 	var erro = document.getElementById("errorMess");
 
 	//check for valid Input
-	if(searchParam.search("[a-zA-Z-0-9&\s'\/]+") < 0) {
+	if(searchParam.match(/[^a-zA-Z-0-9&\s'\/]+/) !== null) {
 		createDiv("errorMess", "error", "contentItems");
 		let erro = document.getElementById("errorMess")
 		erro.innerHTML = "<h2>  Must only contain characters: a-z, 0-9, -, /, &, ', and spaces </h2>"
