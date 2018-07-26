@@ -46,3 +46,4 @@ link to site: https://bbekstha.github.io/
 
 ## Cons
    - Multiple source files as script or functions to read other script files are needed for proper code management of large apps
+   - Script files needs to be ordered properly for the functinalities to work without breaking.
