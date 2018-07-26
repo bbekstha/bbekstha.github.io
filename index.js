@@ -178,7 +178,8 @@ new Vue({
 	mounted: function(){
 		let keyUrl = location.hash.substring(1);
 		if (keyUrl.includes("id_token")){
-			var id_tokenVal = keyUrl.substring("id_token=".length, keyUrl.indexOf("&"))
+			var id_tokenVal = keyUrl.substring(keyUrl.indexOf("id_token=") + "id_token=".length, 
+							   keyUrl.indexOf("&"))
 			var exprIndex = keyUrl.indexOf("expires_in") + "expires_in=".length
 			var exprVal = keyUrl.substring(exprIndex, keyUrl.indexOf("&", exprIndex))
 

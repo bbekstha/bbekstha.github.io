@@ -4,7 +4,16 @@ function personSearch(searchParam) {
 	var resMsg = document.getElementById("resultMessage")
 	var loadingIcon = document.getElementById("loadIcon")
 	var homeBtn = document.getElementById("homeBtn")
+	var erro = document.getElementById("errorMess");
 
+	//check for valid Input
+	if((searchParam.match(/[^a-zA-Z-0-9&\s'\/]+/) !== null) || !searchParam) {
+		createDiv("errorMess", "error", "contentItems");
+		let erro = document.getElementById("errorMess")
+		erro.innerHTML = "<h2>  Must only contain characters: a-z, 0-9, -, /, &, ', and spaces </h2>"
+		return
+	}
+	
 	// Remove any previous results if exists
 	if(resTbl) {
 		resTbl.parentNode.removeChild(resTbl);
@@ -17,7 +26,11 @@ function personSearch(searchParam) {
 	if(loadingIcon) {
 		loadingIcon.parentNode.removeChild(loadingIcon);
 	}
-
+	
+	if(erro) {
+		erro.parentNode.removeChild(erro)
+	}
+	
 	// Go home disabled while searching
 	homeBtn.disabled = true;
 
