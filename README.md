@@ -2,21 +2,21 @@ Bibek Shrestha and Angelo De Laurentis under supervision of John Morton for Cal 
 
 link to site: https://bbekstha.github.io/
 
-What we want to show with this site:
-    Reproducing the vanilla js code with Vue.js cdn links to compare pros and cons
-    Single Page app using Vue.JS framework
-        Routing with deep links
-        Dynamic scalable framework
-    Querying APIs (Accessing an open stock API)
-        https://bbekstha.github.io/#/stock
-    Querying protected APIs (Accessing github repos given access token)
-        https://bbekstha.github.io/#/repo
-    Querying OpenID protected API (Handled with redirect to AWS cognito sign in)
-        https://bbekstha.github.io/#/protected
-    Connecting to self made API hosted on Amazon SAM
-        https://bbekstha.github.io/#/personSearch
+## What we want to show with this site:
+    - Reproducing the vanilla js code with Vue.js cdn links to compare pros and cons
+    - Single Page app using Vue.JS framework
+        - Routing with deep links
+        - Dynamic scalable framework
+    - Querying APIs (Accessing an open stock API)
+        - https://bbekstha.github.io/#/stock
+    - Querying protected APIs (Accessing github repos given access token)
+        - https://bbekstha.github.io/#/repo
+    - Querying OpenID protected API (Handled with redirect to AWS cognito sign in)
+        - https://bbekstha.github.io/#/protected
+    - Connecting to self made API hosted on Amazon SAM
+        - https://bbekstha.github.io/#/personSearch
 
-Project layout:
+## Project layout:
    - README.md
       - This file.
    - format.css
@@ -30,7 +30,7 @@ Project layout:
    - index.js
       - Contains the components, routes and root vue instance.
 
-Programming approach:
+## Programming approach:
    - index.js
       - Routing navigation and rendering respective components are handled by the vueRouter through the root vue instance.
       - Routes are defined with the path and the component relating to the path.
@@ -39,10 +39,10 @@ Programming approach:
    - stock.js, repo.js, protected.js, personSearch.js
       As mentioned above in the project layout section, these files implement methods to handle the functionalities of the respective pages.
 
-Pros
+## Pros
    - Routing and navigation between views is lot easier than vanillaJS
       as it is handled through the vue-router
    - Cleaner templates and rendering of the routing views
 
-Cons
+## Cons
    - Multiple source files as script or functions to read other script files are needed for proper code management of large apps
