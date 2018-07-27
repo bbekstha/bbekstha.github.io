@@ -178,7 +178,7 @@ new Vue({
 	router,
 	mounted: function(){
 		let keyUrl = location.hash.substring(1);
-		iif (keyUrl.includes("id_token")){
+		if (keyUrl.includes("id_token")){
          var id_tokenIndex = keyUrl.indexOf("id_token=")
          var id_tokenVal = keyUrl.substring(id_tokenIndex + "id_token=".length,
           keyUrl.indexOf("&", id_tokenIndex))
