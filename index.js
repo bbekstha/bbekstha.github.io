@@ -150,7 +150,8 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
 	if(to.meta.requiresAuth) {
 		let auth = getCookie('id_token')
-		console.log("HERE12")
+		console.log("HERE12", auth)
+		console.log("TIME REMAINING", (new Date(auth.expDate) - (29.5 * 60 * 1000) - new Date())/60000)
 		if(auth &&
        (new Date(auth.expDate) - (29.5 * 60 * 1000) - new Date())/60000 > 30) {
 			console.log("HERE")
