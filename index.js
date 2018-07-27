@@ -13,10 +13,10 @@ const home = {
 	},
 	template: `
 	<div>
-		<button class='button' v-show='authenticated'> Logout</button>
+		<button class='button' v-show='authenticated' @click='logout'> Logout </button>
 		<div id='ogB'>
 			<div id='authenticate' v-show='!authenticated'>
-				<button class='button' @click='loginClick'> Login </button>
+				<button class='button' @click='login'> Login </button>
 			</div>
 			<button class='button' @click='stockClick'> Search Stock </button>
 			<button class='button' @click='repoClick'> Display Repos </button>
@@ -32,9 +32,14 @@ const home = {
 	</div>
 	`,
 	methods: {
-		loginClick: function() {
+		login: function() {
 			console.log("Login clicked")
 			authenticate()
+		},
+		logout: function() {
+			console.log("Logout clicked")
+			this.authenticated = false;
+			deleteCookie()
 		},
 		stockClick: function() {
 			console.log("Stock clicked")
