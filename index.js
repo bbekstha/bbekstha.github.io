@@ -152,6 +152,7 @@ router.beforeEach((to, from, next) => {
 		let auth = getCookie('id_token')
 		if(auth &&
        (new Date(auth.expDate) - (29.5 * 60 * 1000) - new Date())/60000 > 30) {
+			console.log("HERE")
 			next()
 		} else {
 			authenticate()
