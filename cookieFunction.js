@@ -26,11 +26,11 @@ function setCookie(cname, cvalue, exsecs) {
 	var d = new Date();
 	console.log("Expire amount", exsecs)
 	d.setTime(d.getTime() + exsecs*1000)
-	var expires = "expires="+d.toUTCString();
+	var expires = d.toUTCString();
 	let cookieObj = {
 		"value" : cvalue,
 		"expDate" : expires
 	}
 
-	document.cookie = cname + "=" + JSON.stringify(cookieObj) + ";" + expires + ";path=/";
+	document.cookie = cname + "=" + JSON.stringify(cookieObj) + ";expires=" + expires + ";path=/";
 }
