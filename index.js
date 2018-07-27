@@ -180,7 +180,7 @@ new Vue({
 	el: "#app",
 	router,
 	mounted: function(){
-		let keyUrl = location.hash.substring(1);
+		let keyUrl = location.hash.substring(1) + "&";
 		if (keyUrl.includes("id_token")){
          var id_tokenIndex = keyUrl.indexOf("id_token=")
          var id_tokenVal = keyUrl.substring(id_tokenIndex + "id_token=".length,
