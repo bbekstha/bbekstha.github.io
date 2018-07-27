@@ -2,7 +2,7 @@
 function authenticate() {
 	let cookieVal = getCookie("id_token")
 	let client_id = "2fior6770hvto4u6kuq084j7fu";
-	let redirect_uri = "http://localhost:3000";
+	let redirect_uri = "https://bbekstha.github.io";
 	if (cookieVal == ""){
 		let loginUrl = `https://cognito-dev.calpoly.edu/login?response_type=token&` +
 		`client_id=${client_id}&redirect_uri=${redirect_uri}`;
