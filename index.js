@@ -6,15 +6,33 @@
 
 // home(root) component definition
 const home = {
+	data: function() {
+		return {
+			authenticated: false
+		}
+	},
 	template: `
 	<div id='ogB'>
-	<button class='button' @click='stockClick'> Search Stock </button>
-	<button class='button' @click='repoClick'> Display Repos </button>
-	<button class='button' @click='protectedClick'> Display Pets </button>
-	<button class='button' @click='prsnSearchClick'> Search Person </button>
+		<div id='authenticate' v-show='!authenticated'>
+			<button class='button' @click='loginClick'> Login </button>
+		</div>
+		<button class='button' @click='stockClick'> Search Stock </button>
+		<button class='button' @click='repoClick'> Display Repos </button>
+		<button class='button' @click='prsnSearchClick'> Search Person </button>
+		<div id='authRequired' v-show='authenticated'>
+			<button class='button' @click='protectedClick'> Display Pets </button>
+			<button class='button'> Personal Info </button>
+			<button class='button'> Money Matters </button>
+			<button class='button'> Academics </button>
+			<button class='button'> ASI </button>
+		</div>
 	</div>
 	`,
 	methods: {
+		loginClick: function() {
+			console.log("Login clicked")
+			authenticate()
+		},
 		stockClick: function() {
 			console.log("Stock clicked")
 			this.$router.push('/stock')
@@ -32,6 +50,9 @@ const home = {
 			console.log("Person clicked")
 			this.$router.push('/personSearch')
 		}
+	},
+	mounted: function() {
+		this.authenticated = getCookie("id_token") != ""
 	}
 }
 
