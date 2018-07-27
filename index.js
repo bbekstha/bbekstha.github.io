@@ -151,7 +151,7 @@ router.beforeEach((to, from, next) => {
 	if(to.meta.requiresAuth) {
 		let auth = getCookie('id_token')
 		if(auth &&
-       (new Date(auth.expDate)- new Date())/60000 > 30) {
+       (new Date(auth.expDate) - (29.5 * 60 * 1000) - new Date())/60000 > 30) {
 			next()
 		} else {
 			authenticate()

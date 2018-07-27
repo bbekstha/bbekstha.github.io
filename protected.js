@@ -8,7 +8,7 @@ function authenticate() {
 		`client_id=${client_id}&redirect_uri=${redirect_uri}`;
 
 		window.location = loginUrl
-	} else if ((new Date(cookieVal.expDate) - new Date())/60000 <= 30) {
+	} else if ((new Date(cookieVal.expDate) - (29.5 * 60 * 1000) - new Date())/60000 <= 30) {
       let update_url = `https://cognito-dev.calpoly.edu/oauth2/authorize?` +
 		 `response_type=token&client_id=${client_id}&redirect_uri=${redirect_uri}`
          console.log("update_url")
