@@ -12,7 +12,7 @@ function getCookie(cname) {
 			c = c.substring(1);
 		}
 		if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
+			return JSON.parse(c.substring(name.length, c.length));
 		}
 	}
 	return "";
@@ -26,5 +26,10 @@ function setCookie(cname, cvalue, exsecs) {
 	var d = new Date();
 	d.setTime(d.getTime() + exsecs*1000)
 	var expires = "expires="+d.toUTCString();
-	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	let cookieObj = {
+		"value" : cvalue,
+		"expDate" : expires
+	}
+
+	document.cookie = cname + "=" + JSON.stringify(cookieObj) + ";" + expires + ";path=/";
 }
