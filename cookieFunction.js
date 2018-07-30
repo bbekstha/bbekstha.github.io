@@ -24,7 +24,6 @@ function getCookie(cname) {
 // exsecs - cookie life amounts in seconds
 function setCookie(cname, cvalue, exsecs) {
 	var d = new Date();
-	console.log("Expire amount", exsecs)
 	d.setTime(d.getTime() + exsecs*1000)
 	var expires = d.toUTCString();
 	let cookieObj = {
