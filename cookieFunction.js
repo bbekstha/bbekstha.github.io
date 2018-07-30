@@ -38,5 +38,5 @@ function setCookie(cname, cvalue, exsecs) {
 // Deletes the cookie  of the specified path
 // Sets expiration date to passed date to delete cookie
 function deleteCookie() {
-	document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	document.cookie = "id_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
