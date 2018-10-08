@@ -1,16 +1,9 @@
-let lgnBtn = document.getElementById("loginBtn");
-let dnamBtn = document.getElementById("dnamDB");
 
 let client_id = "2fior6770hvto4u6kuq084j7fu";
 let redirect_uri = "https://bbskestha.github.io/test";
-let code;
 
-lgnBtn.onclick = function(){
-   let loginUrl = `https://cognito-dev.calpoly.edu/login?response_type=code&` +
-		`client_id=${client_id}&redirect_uri=${redirect_uri}`;
-
-   window.location.href = loginUrl;
-}
+let lgnBtn = document.getElementById('loginBtn');
+let dnamBtn = document.getElementById("dnamDB");
 
 window.onload = function(){
    code = window.location.search
@@ -21,6 +14,13 @@ window.onload = function(){
       let clean_uri = location.protocol + "//" + location.host + location.pathname;
       window.history.replaceState({}, document.title, clean_uri);
    }
+}
+
+lgnBtn.onclick = function(){
+   let loginUrl = `https://cognito-dev.calpoly.edu/login?response_type=code&` +
+		`client_id=${client_id}&redirect_uri=${redirect_uri}`;
+
+   window.location.href = loginUrl;
 }
 
 function getTokens(code) {
@@ -36,7 +36,7 @@ function getTokens(code) {
        'code=' + code;
 
       // let tmp = this;
-      fetch(url, {
+      fetch(hostedTknUri, {
          method: 'POST',
          headers,
          mode:'cors',
