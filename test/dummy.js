@@ -1,6 +1,6 @@
 
 let client_id = "2fior6770hvto4u6kuq084j7fu";
-let redirect_uri = "https://bbskestha.github.io/test/";
+let redirect_uri = "https://bbskestha.github.io/";
 let userpool_id = 'us-west-2_LlodYgyQN';
 let cognito_region = 'us-west-2';
 
