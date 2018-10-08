@@ -1,6 +1,9 @@
 
 let client_id = "2fior6770hvto4u6kuq084j7fu";
 let redirect_uri = "https://bbskestha.github.io/test/";
+let userpool_id = 'us-west-2_LlodYgyQN';
+let cognito_region = 'us-west-2';
+
 let code;
 
 let lgnBtn = document.getElementById('loginBtn');
@@ -25,6 +28,56 @@ lgnBtn.onclick = function(){
    window.location.href = loginUrl;
 }
 
+dnamBtn.onclick = function(){
+   let id_token = window.localStorage.getItem('id_token')
+   if(!id_token){
+      window.alert("Not logged in");
+      return
+   }
+
+   setAwsCredentials().then(function(){
+      let id = AWS.config.credentials.identityId
+      let dynamodb = new AWS.DynamoDB({apiVersion: '2012-10-08'});
+      let getParams = {
+         TableName: 'summer_webdev_bshresth_users',
+         ConsistentRead: true,
+         Key: {
+            'userid' : {S: id},
+            'username' : {S: this.userName}
+         },
+         ProjectionExpression: 'userComment'
+      }
+
+      // return new Promise(function(resolve, reject){
+      dynamodb.getItem(getParams, function(err, data) {
+         if (err) {
+            console.log("Error in getItem", err);
+            // reject(err)
+         } else {
+            console.log("Success", data.Item);
+            // resolve(data.Item)
+         }
+      })
+      // })
+   });
+}
+
+function setAwsCredentials() {
+   let promise: Promise<void> = new Promise<void>((resolve, reject) => {
+      let logins = {};
+      logins['cognito-idp.' + cognito_region + '.amazonaws.com/' + userpool_id] = LocalStorage.get('userTokens.idToken');
+
+      AWS.config.region = cognito_region;
+      AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+         IdentityPoolId: "us-west-2:2e58c36f-a443-401e-bf6a-23d9142041d7",
+         Logins: logins
+      });
+
+      resolve();
+   })
+   return promise;
+}
+
 function getTokens(code) {
    return new Promise((resolve, reject) => {
       let headers = {};
@@ -45,7 +98,7 @@ function getTokens(code) {
          body: body
       }).then(function(response) {
          window.localStorage.setItem("id_token", data.id_token)
-         window.localStorage.setItem("refreshToken", data.refresh_token)
+         // window.localStorage.setItem("refreshToken", data.refresh_token)
 
          resolve()
       })
