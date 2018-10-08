@@ -1,6 +1,6 @@
 
 let client_id = "2fior6770hvto4u6kuq084j7fu";
-let redirect_uri = "https://bbskestha.github.io/test";
+let redirect_uri = "https://bbskestha.github.io/test/";
 let code;
 
 let lgnBtn = document.getElementById('loginBtn');
