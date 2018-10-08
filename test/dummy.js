@@ -1,6 +1,6 @@
 
 let client_id = "2fior6770hvto4u6kuq084j7fu";
-let redirect_uri = "https://bbskestha.github.io/";
+let redirect_uri = "https://bbekstha.github.io/test";
 let userpool_id = 'us-west-2_LlodYgyQN';
 let cognito_region = 'us-west-2';
 
@@ -24,7 +24,6 @@ window.onload = function(){
 lgnBtn.onclick = function(){
    let loginUrl = `https://cognito-dev.calpoly.edu/login?response_type=code&` +
 		`client_id=${client_id}&redirect_uri=${redirect_uri}`;
-
    window.location.href = loginUrl;
 }
 
