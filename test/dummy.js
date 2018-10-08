@@ -1,13 +1,15 @@
 
 let client_id = "2fior6770hvto4u6kuq084j7fu";
 let redirect_uri = "https://bbskestha.github.io/test";
+let code;
 
 let lgnBtn = document.getElementById('loginBtn');
 let dnamBtn = document.getElementById("dnamDB");
 
 window.onload = function(){
    code = window.location.search
-   if(code.indexOf('?code')) {
+   console.log("CodeVal", code.indexOf('?code'))
+   if(code.indexOf('?code') > 0) {
       let codeVal = code.substring(code.indexOf('?code') + '?code='.length + 1)
       console.log("Code", codeVal)
       getTokens(codeVal);
