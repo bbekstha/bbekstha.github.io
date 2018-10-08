@@ -12,7 +12,7 @@ let dnamBtn = document.getElementById("dnamDB");
 window.onload = function(){
    code = window.location.search
    console.log("CodeVal", code.indexOf('?code'))
-   if(code.indexOf('?code') > 0) {
+   if(code.indexOf('?code') >= 0) {
       let codeVal = code.substring(code.indexOf('?code') + '?code='.length + 1)
       console.log("Code", codeVal)
       getTokens(codeVal);
