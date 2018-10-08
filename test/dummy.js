@@ -96,6 +96,7 @@ function getTokens(code) {
          mode:'cors',
          body: body
       }).then(function(response) {
+         console.log("HERE IN FETCH")
          window.localStorage.setItem("id_token", data.id_token)
          // window.localStorage.setItem("refreshToken", data.refresh_token)
 
