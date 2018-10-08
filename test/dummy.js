@@ -63,7 +63,7 @@ dnamBtn.onclick = function(){
 }
 
 function setAwsCredentials() {
-   let promise: Promise<void> = new Promise<void>((resolve, reject) => {
+   let promise = new Promise((resolve, reject) => {
       let logins = {};
       logins['cognito-idp.' + cognito_region + '.amazonaws.com/' + userpool_id] = LocalStorage.get('userTokens.idToken');
 
