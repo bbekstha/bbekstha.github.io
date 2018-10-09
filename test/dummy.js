@@ -96,7 +96,7 @@ function getTokens(code) {
       fetch(hostedTknUri, {
          method: 'POST',
          headers,
-         mode:'cors',
+         // mode:'cors',
          body: body
       }).then(function(response) {
          console.log("HERE IN FETCH", JSON.stringify(response))
