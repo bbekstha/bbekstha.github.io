@@ -99,7 +99,7 @@ function getTokens(code) {
          mode:'cors',
          body: body
       }).then(function(response) {
-         console.log("HERE IN FETCH", JSON.stingify(response))
+         console.log("HERE IN FETCH", JSON.stringify(response))
          window.localStorage.setItem("id_token", response.id_token)
          // window.localStorage.setItem("refreshToken", response.refresh_token)
 
