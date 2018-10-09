@@ -89,7 +89,7 @@ function getTokens(code) {
       headers['Content-Type'] = 'application/x-www-form-urlencoded';
       let body = 'grant_type=authorization_code&' +
        'client_id=' + client_id + '&' +
-       'redirect_uri=' + requestRedirectUri + '&' +
+       'redirect_uri=' + encodeURIComponent(requestRedirectUri) + '&' +
        'code=' + code;
 
       // let tmp = this;
