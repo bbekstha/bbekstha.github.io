@@ -11,11 +11,11 @@ let dnamBtn = document.getElementById("dnamDB");
 
 window.onload = function(){
    code = window.location.search
-   console.log("CodeVal", code.indexOf('?code'))
+   console.log("CodeVal", code)
    if(code.indexOf('?code') >= 0) {
       let codeVal = code.substring(code.indexOf('?code') + '?code='.length)
       console.log("Code", codeVal)
-      getTokens(codeVal).then(function{
+      getTokens(codeVal).then(function(){
          console.log("token\n", window.localStorage.getItem('id_token'));
          let clean_uri = location.protocol + "//" + location.host + location.pathname;
          window.history.replaceState({}, document.title, clean_uri);
