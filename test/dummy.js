@@ -13,7 +13,7 @@ window.onload = function(){
    code = window.location.search
    console.log("CodeVal", code.indexOf('?code'))
    if(code.indexOf('?code') >= 0) {
-      let codeVal = code.substring(code.indexOf('?code') + '?code='.length + 1)
+      let codeVal = code.substring(code.indexOf('?code') + '?code='.length)
       console.log("Code", codeVal)
       getTokens(codeVal);
       let clean_uri = location.protocol + "//" + location.host + location.pathname;
