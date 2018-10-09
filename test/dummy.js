@@ -97,8 +97,8 @@ function getTokens(code) {
          body: body
       }).then(function(response) {
          console.log("HERE IN FETCH")
-         window.localStorage.setItem("id_token", data.id_token)
-         // window.localStorage.setItem("refreshToken", data.refresh_token)
+         window.localStorage.setItem("id_token", response.id_token)
+         // window.localStorage.setItem("refreshToken", response.refresh_token)
 
          resolve()
       })
