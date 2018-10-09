@@ -15,9 +15,12 @@ window.onload = function(){
    if(code.indexOf('?code') >= 0) {
       let codeVal = code.substring(code.indexOf('?code') + '?code='.length)
       console.log("Code", codeVal)
-      getTokens(codeVal);
-      let clean_uri = location.protocol + "//" + location.host + location.pathname;
-      window.history.replaceState({}, document.title, clean_uri);
+      getTokens(codeVal).then(function{
+         console.log("token\n", window.localStorage.getItem('id_token'));
+         let clean_uri = location.protocol + "//" + location.host + location.pathname;
+         window.history.replaceState({}, document.title, clean_uri);
+      })
+
    }
 }
 
@@ -96,7 +99,7 @@ function getTokens(code) {
          mode:'cors',
          body: body
       }).then(function(response) {
-         console.log("HERE IN FETCH")
+         console.log("HERE IN FETCH", response)
          window.localStorage.setItem("id_token", response.id_token)
          // window.localStorage.setItem("refreshToken", response.refresh_token)
 
