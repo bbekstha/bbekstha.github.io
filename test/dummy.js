@@ -1,8 +1,8 @@
 
 let client_id = "2fior6770hvto4u6kuq084j7fu";
 let redirect_uri = "https://bbekstha.github.io/test";
-let userpool_id = 'us-west-2_LlodYgyQN';
-let cognito_region = 'us-west-2';
+let userpool_id = "us-west-2_LlodYgyQN";
+let cognito_region = "us-west-2";
 
 let code;
 
@@ -82,21 +82,23 @@ function setAwsCredentials() {
 
 function getTokens(code) {
    return new Promise((resolve, reject) => {
-      let headers = {};
+      // let headers = {};
       let requestRedirectUri = redirect_uri;
       let hostedTknUri = 'https://cognito-dev.calpoly.edu/oauth2/token'
 
-      headers['Content-Type'] = 'application/x-www-form-urlencoded';
+      // headers['Content-Type'] = 'application/x-www-form-urlencoded';
       let body = 'grant_type=authorization_code&' +
        'client_id=' + client_id + '&' +
-       'redirect_uri=' + encodeURIComponent(requestRedirectUri) + '&' +
+       'redirect_uri=' + requestRedirectUri + '&' +
        'code=' + code;
 
       // let tmp = this;
       fetch(hostedTknUri, {
          method: 'POST',
-         headers,
-         // mode:'cors',
+         headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+         },
+         mode:'cors',
          body: body
       }).then(function(response) {
          console.log("HERE IN FETCH", JSON.stringify(response))
